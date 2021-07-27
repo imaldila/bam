@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bam_project">
+    package="com.ccan.bam_project">
    <application
         android:label="bam_project"
         android:icon="@mipmap/ic_launcher">

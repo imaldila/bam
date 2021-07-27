@@ -1,4 +1,4 @@
-package com.example.bam_project
+package com.ccan.bam_project
 
 import io.flutter.embedding.android.FlutterActivity
 
