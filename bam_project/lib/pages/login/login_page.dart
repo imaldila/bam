@@ -1,13 +1,13 @@
 import 'package:bam_project/components/rounded_button.dart';
 import 'package:bam_project/components/rounded_input_field.dart';
 import 'package:bam_project/components/rounded_password_field.dart';
-import 'package:bam_project/components/textfield_container.dart';
-import 'package:bam_project/constants.dart';
+import 'package:bam_project/model/firebase/auth_services.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -54,17 +54,23 @@ class LoginPage extends StatelessWidget {
                 height: size.height * 0.02,
               ),
               RoundedInputField(
+                controller: emailController,
                 hintText: "NIK",
                 onChanged: (value) {},
               ),
               RoundedPasswordField(
+                controller: passwordController,
                 onChanged: (value) {},
               ),
               SizedBox(
                 height: size.height * 0.02,
               ),
               RoundedButton(
-                press: () {},
+                press: () {
+                  context.read<AuthServices>().signIn(
+                      email: emailController.text.trim(),
+                      password: passwordController.text.trim());
+                },
                 text: "Login",
               )
             ],

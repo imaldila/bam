@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RoundedPasswordField extends StatelessWidget {
+  final TextEditingController? controller;
   final ValueChanged? onChanged;
   const RoundedPasswordField({
     Key? key,
-    this.onChanged,
+    this.onChanged, this.controller,
   }) : super(key: key);
 
   @override
