@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
-  final Function press;
+  final Function() onPressed;
   final Color color, textColor;
   const RoundedButton({
     Key? key,
     required this.text,
-    required this.press,
+    required this.onPressed,
     this.color = kPrimaryColor,
     this.textColor = Colors.white,
   }) : super(key: key);
@@ -28,7 +28,7 @@ class RoundedButton extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
               primary: kPrimaryColor,
               elevation: 5),
-          onPressed: () {},
+          onPressed: onPressed,
           child: Text(
             text,
             style: GoogleFonts.montserratAlternates(

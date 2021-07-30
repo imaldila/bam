@@ -30,8 +30,8 @@ class RoundedInputField extends StatelessWidget {
             color: kPrimaryLightColor,
           ),
         ),
-        keyboardType: TextInputType.number,
-        maxLength: 8,
+        //keyboardType: TextInputType.number,
+        //maxLength: 8,
       ),
     );
   }
