@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RoundedInputField extends StatelessWidget {
-  final TextEditingController? controller;
+  final TextEditingController controller;
   final String? hintText;
   final IconData icon;
   final ValueChanged<String>? onChanged;
@@ -12,13 +12,15 @@ class RoundedInputField extends StatelessWidget {
     Key? key,
     this.hintText,
     this.onChanged,
-    this.icon = Icons.person, this.controller,
+    this.icon = Icons.person,
+    required this.controller,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextField(
+        controller: controller,
         style: GoogleFonts.montserratAlternates(),
         onChanged: onChanged,
         decoration: InputDecoration(

@@ -15,6 +15,7 @@ class RoundedPasswordField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextField(
+        controller: controller,
         style: GoogleFonts.montserratAlternates(),
         obscureText: true,
         onChanged: onChanged,

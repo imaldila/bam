@@ -65,21 +65,13 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.02,
               ),
-              ElevatedButton(
+              RoundedButton(
                 onPressed: () {
                   context.read<AuthServices>().signIn(
                       email: emailController.text,
                       password: passwordController.text);
                 },
-                child: Text("Login"),
-                // RoundedButton(
-                //   onPressed: () {
-                //     context.read<AuthServices>().signIn(
-                //         email: emailController.text,
-                //         password: passwordController.text);
-                //   },
-                //   text: "Login",
-                // )
+                text: "Login",
               )
             ],
           ),
