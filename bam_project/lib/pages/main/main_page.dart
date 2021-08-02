@@ -1,4 +1,6 @@
+import 'package:bam_project/constants.dart';
 import 'package:bam_project/model/firebase/auth_services.dart';
+import 'package:bam_project/pages/main/components/body.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,22 +11,30 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("HomePage"),
-              ElevatedButton(onPressed: () {
-                context.read<AuthServices>().signOut();
-              }, child: Text("Sign Out"))
-            ],
-          ),
+    return Scaffold(
+      appBar: buildAppBar(),
+      body: Body(),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      backgroundColor: kPrimaryLightColor,
+      elevation: 0,
+      leading: IconButton(
+        onPressed: () {},
+        icon: Icon(
+          Icons.more_horiz,
           
         ),
       ),
     );
   }
 }
+
+
+// ElevatedButton(
+//                   onPressed: () {
+//                     context.read<AuthServices>().signOut();
+//                   },
+//                   child: Text("Sign Out")),
