@@ -28,6 +28,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.0.1
   firebase_core: ^1.4.0
+  flutter_svg: ^0.22.0
   google_fonts: ^2.1.0
   provider: ^5.0.0
 
@@ -46,8 +47,9 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/
     - assets/images/logo_ccan.png
-  #   - images/a_dot_ham.jpeg
+    - assets/icons/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

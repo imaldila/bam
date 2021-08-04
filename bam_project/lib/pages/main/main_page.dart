@@ -2,6 +2,7 @@ import 'package:bam_project/constants.dart';
 import 'package:bam_project/model/firebase/auth_services.dart';
 import 'package:bam_project/pages/main/components/body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 class MainPage extends StatelessWidget {
@@ -23,11 +24,14 @@ class MainPage extends StatelessWidget {
       elevation: 0,
       leading: IconButton(
         onPressed: () {},
-        icon: Icon(
-          Icons.more_horiz,
-          
-        ),
+        icon: SvgPicture.asset('bam_project\assets\icons\ic_menu.svg')
       ),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: SvgPicture.asset('bam_project\assets\icons\ic_search.svg')
+        )
+      ],
     );
   }
 }
