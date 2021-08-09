@@ -4,7 +4,7 @@ class Menu {
   Menu({this.title, this.image});
 }
 
-List<Menu> demo_menus = [
+List<Menu> demoMenus = [
   Menu(title: "BA on Progress" , image: "assets/icons/ic_ba.png"),
   Menu(title: " BA Completed", image: "assets/icons/ic_ba_complete.png")
 ];
