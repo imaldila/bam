@@ -1,5 +1,5 @@
 import 'package:bam_project/constants.dart';
-import 'package:bam_project/pages/main/components/header_with_search_box.dart';
+import 'package:bam_project/screens/home/components/header.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {
@@ -11,11 +11,19 @@ class Body extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          HeaderWithSearchBox(size: size),
+          //HeaderWithSearchBox(size: size),
+          Positioned(
+              top: 0,
+              right: 0,
+              left: 0,
+              bottom: 0,
+              height: headerHeight,
+              child: HomeHeader()),
+
           Container(
             width: size.width * 0.4,
             child: Column(
-              children: [Image.asset("assets\images\logo_ccan.png")],
+              children: [],
             ),
           )
         ],

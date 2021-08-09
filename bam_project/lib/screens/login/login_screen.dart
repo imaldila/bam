@@ -1,11 +1,11 @@
 import 'package:bam_project/components/rounded_button.dart';
 import 'package:bam_project/components/rounded_input_field.dart';
 import 'package:bam_project/components/rounded_password_field.dart';
-import 'package:bam_project/model/firebase/auth_services.dart';
+import 'package:bam_project/controllers/firebase/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
