@@ -1,6 +1,8 @@
 import 'package:bam_project/constants.dart';
+import 'package:bam_project/screens/details/detail_screen.dart';
 import 'package:bam_project/screens/home/components/header.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -29,6 +31,7 @@ class Body extends StatelessWidget {
                   top: headerHeight,
                   left: 0,
                   right: 0,
+                  height: kDefaultPadding * 26,
                   child: Container(
                     padding:
                         const EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -49,7 +52,30 @@ class Body extends StatelessWidget {
                               Container(
                                 height: size.height * 0.25,
                                 width: size.width * 0.6,
-                                color: Colors.red,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(22),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                DetailScreen()),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      elevation: 5,
+                                      primary: kPrimaryColor,
+                                      alignment: Alignment.bottomCenter
+                                    ),
+                                    child: (Text(
+                                      "BA on Progress",
+                                      textAlign: TextAlign.right,
+                                      style: GoogleFonts.montserratAlternates(
+                                          fontSize: 24),
+                                    )),
+                                  ),
+                                ),
                               ),
                               SizedBox(
                                 width: kDefaultPadding,
@@ -57,8 +83,24 @@ class Body extends StatelessWidget {
                               Container(
                                 height: size.height * 0.25,
                                 width: size.width * 0.6,
-                                color: Colors.black,
-                              )
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(22),
+                                  child: ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                      elevation: 5,
+                                      primary: kPrimaryColor,
+                                      alignment: Alignment.bottomCenter
+                                    ),
+                                    child: (Text(
+                                      "BA Completed",
+                                      textAlign: TextAlign.right,
+                                      style: GoogleFonts.montserratAlternates(
+                                          fontSize: 24),
+                                    )),
+                                  ),
+                                ),
+                              ),
                             ]);
                       },
                     ),
@@ -69,9 +111,7 @@ class Body extends StatelessWidget {
                   left: 0,
                   right: 0,
                   height: bottomBarHeight,
-                  child: Container(
-                    color: Colors.red
-                  ),
+                  child: Container(color: Colors.red),
                 )
               ],
             ),

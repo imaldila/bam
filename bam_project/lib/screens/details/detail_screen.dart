@@ -6,6 +6,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("BA on Progress"),),
       body: Text("Detail Screen"),
     );
   }
