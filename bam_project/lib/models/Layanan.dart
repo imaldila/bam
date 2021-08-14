@@ -1,10 +1,14 @@
 class Layanan {
-  final String? namaLayanan;
+  int id;
+  String namaLayanan;
 
-  Layanan({this.namaLayanan});
+  Layanan(this.id, this.namaLayanan);
+
+  static List<Layanan> getLayanan() {
+    return <Layanan>[
+      Layanan(1, 'Pasang Baru'),
+      Layanan(2, 'Gangguan'),
+    ];
+  }
 }
 
-List<Layanan> listLayanan = [
-  Layanan(namaLayanan: "Pasang Baru"),
-  Layanan(namaLayanan: "Gangguan")
-];
