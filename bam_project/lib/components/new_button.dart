@@ -27,7 +27,7 @@ class NewButton extends StatelessWidget {
           onPressed: onPressed,
           style:
               ElevatedButton.styleFrom(elevation: 10, primary: kPrimaryColor),
-          child: Text(text, style: GoogleFonts.poppins(fontSize: 18)),
+          child: Text(text, style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.bold)),
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:bam_project/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -20,14 +21,13 @@ class HomeHeader extends StatelessWidget {
             children: [
               Text(
                 "Hi !",
-                style: Theme.of(context).textTheme.caption,
+                style: GoogleFonts.poppins(
+                    textStyle: Theme.of(context).textTheme.caption),
               ),
               Text(
                 "Aldila Nurhadiputra",
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1!
-                    .copyWith(color: Colors.black54),
+                style: GoogleFonts.poppins(
+                    textStyle: Theme.of(context).textTheme.subtitle1!),
               )
             ],
           ),

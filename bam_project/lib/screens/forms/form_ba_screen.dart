@@ -1,3 +1,5 @@
+import 'package:bam_project/components/rounded_input_field.dart';
+import 'package:bam_project/components/textfield_container.dart';
 import 'package:bam_project/constants.dart';
 import 'package:bam_project/models/Layanan.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'components/list_button.dart';
 
 class FormBa extends StatefulWidget {
-  const FormBa({Key? key}) : super(key: key);
-
   @override
   _FormBaState createState() => _FormBaState();
 }
@@ -16,6 +16,7 @@ class FormBa extends StatefulWidget {
 class _FormBaState extends State<FormBa> {
   String? _valLayanan;
   List _listlayanan = ['Pasang Baru', 'Gangguan'];
+  final TextEditingController namaController = TextEditingController();
 
   String? _valPaket;
   List _listPaket = [
@@ -30,6 +31,7 @@ class _FormBaState extends State<FormBa> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -51,8 +53,10 @@ class _FormBaState extends State<FormBa> {
         ],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+        child: ListView(
+          padding: EdgeInsets.only(top: 0),
+          // child: Column(
+          //   mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ListButton(
               hint: "Jenis Layanan",
@@ -84,6 +88,74 @@ class _FormBaState extends State<FormBa> {
                 });
               },
             ),
+            // Container(
+            //   width: size.width / 1.1,
+            //   child: TextFieldContainer(
+
+            //     child: TextField(
+            //       style: GoogleFonts.poppins(),
+            //       decoration: InputDecoration(
+            //         border: InputBorder.none,
+            //         hintText: "Nama Pelanggan",
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  kDefaultPadding,
+                  kDefaultPadding,
+                  kDefaultPadding,
+                  0,
+                ),
+                child: Material(
+                    elevation: 8,
+                    borderRadius: BorderRadius.circular(8),
+                    shadowColor: Colors.white,
+                    child: Container(
+                      padding: EdgeInsets.only(
+                        left: kDefaultPadding,
+                        right: kDefaultPadding,
+                      ),
+                      width: size.width / 1.1,
+                      child: TextFieldContainer(
+                        child: TextField(
+                          style: GoogleFonts.poppins(),
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Nama Pelanggan",
+                          ),
+                        ),
+                      ),
+                    ))),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  kDefaultPadding,
+                  kDefaultPadding,
+                  kDefaultPadding,
+                  0,
+                ),
+                child: Material(
+                    elevation: 8,
+                    borderRadius: BorderRadius.circular(8),
+                    shadowColor: Colors.white,
+                    child: Container(
+                      padding: EdgeInsets.only(
+                        left: kDefaultPadding,
+                        right: kDefaultPadding,
+                      ),
+                      width: size.width / 1.1,
+                      height: size.width / 3,
+                      child: TextFieldContainer(
+                        child: TextField(
+                          style: GoogleFonts.poppins(),
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Alamat",
+                          ),
+                        ),
+                      ),
+                    )))
           ],
         ),
       ),

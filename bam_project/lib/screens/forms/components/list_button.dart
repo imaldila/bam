@@ -34,11 +34,11 @@ class _ListButtonState extends State<ListButton> {
         0,
       ),
       child: Material(
-        elevation: 50,
+        elevation: 8,
         borderRadius: BorderRadius.circular(8),
         shadowColor: Colors.white,
         child: Container(
-          margin: EdgeInsets.only(top: 5),
+          margin: EdgeInsets.only(top: 5, bottom: 5),
           padding: EdgeInsets.only(
             left: kDefaultPadding,
             right: kDefaultPadding,
