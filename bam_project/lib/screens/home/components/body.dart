@@ -1,6 +1,6 @@
 import 'package:bam_project/components/new_button.dart';
 import 'package:bam_project/constants.dart';
-import 'package:bam_project/screens/forms/form_ba_screen.dart';
+import 'package:bam_project/screens/forms/form_ba1_screen.dart';
 import 'package:bam_project/screens/home/components/home_header.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +44,7 @@ class Body extends StatelessWidget {
                   text: "Create BA",
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FormBa()));
+                        MaterialPageRoute(builder: (context) => FormBa1()));
                   },
                 ),
               ),
