@@ -2,7 +2,7 @@
     package="com.ccan.bam_project">
    <application
         android:label="bam_project"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/splash_ccan.png">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
