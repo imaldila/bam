@@ -1,9 +1,11 @@
 import 'package:bam_project/components/new_button.dart';
+import 'package:bam_project/constants.dart';
 import 'package:bam_project/screens/forms/components/form_address_field.dart';
 import 'package:bam_project/screens/forms/components/form_input_field.dart';
 import 'package:bam_project/screens/forms/components/list_button.dart';
 import 'package:bam_project/screens/forms/form_ba2_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Body1 extends StatefulWidget {
   const Body1({
@@ -19,6 +21,9 @@ class _Body1State extends State<Body1> {
   final TextEditingController ndController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
+  final TextEditingController picController = TextEditingController();
+  final TextEditingController dateController = TextEditingController();
+  DateTime selectedDate = DateTime.now();
 
   // @override
   // void initState() {
@@ -34,6 +39,7 @@ class _Body1State extends State<Body1> {
 
   String? _valPaket;
   List _listPaket = [
+    '1P',
     '2P',
     '3P',
     'DATIN',
@@ -44,6 +50,7 @@ class _Body1State extends State<Body1> {
   ];
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Center(
       child: ListView(children: [
         Column(children: [
@@ -75,6 +82,39 @@ class _Body1State extends State<Body1> {
                   _valPaket = value;
                 });
               }),
+          Container(
+            width: size.width * 2,
+            height: size.height / 11.5,
+            margin: const EdgeInsets.fromLTRB(
+              kDefaultPadding,
+              kDefaultPadding,
+              kDefaultPadding,
+              0,
+            ),
+            child: Material(
+              elevation: 8,
+              borderRadius: BorderRadius.circular(8),
+              shadowColor: Colors.white,
+              child: TextButton(
+                  onPressed: () {
+                    showDatePicker(
+                            context: context,
+                            initialDate: selectedDate,
+                            firstDate: DateTime(2021),
+                            lastDate: DateTime(2222),
+                            )
+                        .then((value) {
+                      setState(() {
+                        selectedDate = value!;
+                      });
+                    });
+                  },
+                  child: Text(
+                    selectedDate.toString(),
+                    style: GoogleFonts.poppins(fontSize: 16, color: Colors.black)
+                  )),
+            ),
+          ),
           FormInputField(
               controller: ticketController,
               hintText: "No Tiket / SC",
@@ -86,6 +126,11 @@ class _Body1State extends State<Body1> {
           FormInputField(
             controller: nameController,
             hintText: "Nama Pelanggan",
+            onChange: (value) {},
+          ),
+          FormInputField(
+            controller: picController,
+            hintText: "PIC / No HP Pelanggan",
             onChange: (value) {},
           ),
           FormAddressField(

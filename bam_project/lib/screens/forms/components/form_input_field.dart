@@ -9,7 +9,10 @@ class FormInputField extends StatelessWidget {
   final ValueChanged<String>? onChange;
 
   const FormInputField({
-    Key? key, this.hintText, this.onChange, required this.controller
+    Key? key,
+    this.hintText,
+    this.onChange,
+    required this.controller,
   }) : super(key: key);
 
   @override
