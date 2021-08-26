@@ -8,7 +8,10 @@ class FormAddressField extends StatelessWidget {
   final String? hintText;
   final ValueChanged<String>? onChange;
   const FormAddressField({
-    Key? key, required this.controller, this.hintText, this.onChange,
+    Key? key,
+    required this.controller,
+    this.hintText,
+    this.onChange,
   }) : super(key: key);
 
   @override
@@ -28,13 +31,13 @@ class FormAddressField extends StatelessWidget {
           controller: controller,
           onChanged: onChange,
           style: GoogleFonts.poppins(),
-          maxLines: 3,
+          maxLines: 4,
           decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide.none,
               ),
-              hintText: hintText),
+              hintText: hintText, contentPadding: EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding,top: kDefaultPadding)),
         ),
       ),
     );

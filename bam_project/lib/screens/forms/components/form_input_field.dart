@@ -33,11 +33,11 @@ class FormInputField extends StatelessWidget {
           onChanged: onChange,
           style: GoogleFonts.poppins(),
           decoration: InputDecoration(
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide.none),
-            hintText: hintText,
-          ),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide.none),
+              hintText: hintText,
+              contentPadding: EdgeInsets.all(kDefaultPadding)),
         ),
       ),
     );

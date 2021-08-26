@@ -83,40 +83,8 @@ class _Body1State extends State<Body1> {
                   _valPaket = value;
                 });
               }),
-           MyDatePicker(),
-          // Container(
-          //   width: size.width * 2,
-          //   height: size.height / 11.5,
-          //   margin: const EdgeInsets.fromLTRB(
-          //     kDefaultPadding,
-          //     kDefaultPadding,
-          //     kDefaultPadding,
-          //     0,
-          //   ),
-          //   child: Material(
-          //     elevation: 8,
-          //     borderRadius: BorderRadius.circular(8),
-          //     shadowColor: Colors.white,
-          //     child: TextButton(
-          //         onPressed: () {
-          //           showDatePicker(
-          //             initialEntryMode: DatePickerEntryMode.calendarOnly,
-          //             context: context,
-          //             initialDate: selectedDate,
-          //             firstDate: DateTime(2021),
-          //             lastDate: DateTime(2222),
-          //           ).then((value) {
-          //             setState(() {
-          //               selectedDate = value!;
-          //             });
-          //           });
-          //         },
-          //         child: Text(selectedDate.toString(),
-          //             style: GoogleFonts.poppins(
-          //                 fontSize: 16, color: Colors.black))),
-          //   ),
-          // ),
-
+          MyDatePicker(),
+         // NewWidget(),
           FormInputField(
               controller: ticketController,
               hintText: "No Tiket / SC",
@@ -153,3 +121,5 @@ class _Body1State extends State<Body1> {
     );
   }
 }
+
+

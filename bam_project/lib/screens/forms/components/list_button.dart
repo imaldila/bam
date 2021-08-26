@@ -37,7 +37,7 @@ class _ListButtonState extends State<ListButton> {
         borderRadius: BorderRadius.circular(8),
         shadowColor: Colors.white,
         child: Container(
-          margin: EdgeInsets.only(top: 5, bottom: 5),
+          margin: EdgeInsets.only(top: 6, bottom: 6),
           padding: EdgeInsets.only(
             left: kDefaultPadding,
             right: kDefaultPadding,
