@@ -1,12 +1,10 @@
 import 'package:bam_project/components/new_button.dart';
-import 'package:bam_project/constants.dart';
 import 'package:bam_project/screens/forms/components/date_picker.dart';
 import 'package:bam_project/screens/forms/components/form_address_field.dart';
 import 'package:bam_project/screens/forms/components/form_input_field.dart';
 import 'package:bam_project/screens/forms/components/list_button.dart';
 import 'package:bam_project/screens/forms/form_ba2_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Body1 extends StatefulWidget {
   const Body1({
@@ -51,7 +49,6 @@ class _Body1State extends State<Body1> {
   ];
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Center(
       child: ListView(children: [
         Column(children: [
