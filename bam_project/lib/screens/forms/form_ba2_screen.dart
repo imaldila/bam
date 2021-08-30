@@ -1,3 +1,4 @@
+import 'package:bam_project/screens/forms/components/body2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,7 +10,7 @@ class FormBa2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Text("Form BA 2"),
+      body: Body2(),
     );
   }
 
