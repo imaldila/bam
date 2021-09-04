@@ -7,7 +7,8 @@ import '../../../constants.dart';
 class ListButton extends StatefulWidget {
   final value;
   final items;
-  final String hint;
+  final hint;
+  final newKey;
   final ValueChanged? onChange;
 
   const ListButton({
@@ -15,7 +16,8 @@ class ListButton extends StatefulWidget {
     this.value,
     this.onChange,
     this.items,
-    required this.hint,
+    this.hint,
+    this.newKey,
   }) : super(key: key);
 
   @override
@@ -43,6 +45,7 @@ class _ListButtonState extends State<ListButton> {
             right: kDefaultPadding,
           ),
           child: DropdownButton(
+            key: widget.newKey ,
             hint: Text(
               widget.hint,
               style: GoogleFonts.montserrat(),

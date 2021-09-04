@@ -1,16 +1,22 @@
-import 'package:bam_project/screens/forms/components/body2.dart';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FormBa2 extends StatelessWidget {
-  const FormBa2({Key? key}) : super(key: key);
+import 'components/body_customer.dart';
 
+class FormBa1 extends StatefulWidget {
+  @override
+  _FormBa1State createState() => _FormBa1State();
+}
+
+class _FormBa1State extends State<FormBa1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body2(),
+      body: Body1(),
     );
   }
 
@@ -23,7 +29,7 @@ class FormBa2 extends StatelessWidget {
       backgroundColor: Colors.white,
       centerTitle: true,
       title: Text(
-        "Input BA",
+        "Input BA | Customer",
         style: GoogleFonts.montserrat(
             color: Colors.black, fontWeight: FontWeight.bold),
       ),

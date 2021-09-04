@@ -27,7 +27,7 @@ class HomeBody extends StatelessWidget {
         itemBuilder: (context, index) {
           return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Container(
-              height: size.height * 0.25,
+              height: size.height * 0.22,
               width: size.width * 0.6,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(22),
@@ -55,7 +55,7 @@ class HomeBody extends StatelessWidget {
               width: kDefaultPadding,
             ),
             Container(
-              height: size.height * 0.25,
+              height: size.height * 0.22,
               width: size.width * 0.6,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(22),
