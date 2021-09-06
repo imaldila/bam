@@ -32,14 +32,16 @@ class _AssuranceFormState extends State<AssuranceForm> {
               hintText: "SN STB",
             ),
             CheckBoxField(
-              text: "Dropcore / Preconn",
-              lastText: "/ Pcs",
+              text: "Dropcore 80 Meter",
+              labelText: "Jml",
               controller: dcController,
             ),
-            CheckBoxField(
-              text: "Text",
-              lastText: "meter",
-            )
+            //  CheckBoxField(
+            //   text: "Dropcore 50 Meter",
+            //   labelText: "Jml",
+            //   controller: null,
+            // ),
+            
           ],
         ),
       ),

@@ -1,3 +1,10 @@
+// import 'dart:html';
+
+import 'package:bam_project/counter/cubit/counter_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:number_inc_dec/number_inc_dec.dart';
+
 import '../../../constants.dart';
 import 'package:flutter/material.dart';
 
@@ -6,31 +13,44 @@ class CheckBoxField extends StatefulWidget {
   final lastText;
   final controller;
 
-  const CheckBoxField({Key? key, this.text, this.lastText, this.controller})
+  final labelText;
+
+  const CheckBoxField(
+      {Key? key, this.text, this.lastText, this.controller, this.labelText})
       : super(key: key);
   @override
   _CheckBoxFieldState createState() => _CheckBoxFieldState();
 }
 
+final TextEditingController _controller = TextEditingController();
+
 class _CheckBoxFieldState extends State<CheckBoxField> {
   bool isChecked = false;
+
+  int _counter = 0;
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(
-        kDefaultPadding + 20,
         kDefaultPadding,
-        kDefaultPadding + 20,
+        kDefaultPadding,
+        kDefaultPadding,
         0,
       ),
       child: Row(
         children: [
-          Text(
-            widget.text,
-            style: poppinsStyle(),
-          ),
-          Spacer(),
           Checkbox(
             value: isChecked,
             onChanged: (value) {
@@ -39,41 +59,93 @@ class _CheckBoxFieldState extends State<CheckBoxField> {
               });
             },
           ),
+          Text(
+            widget.text,
+            style: poppinsStyle(),
+          ),
+          Spacer(),
+          (isChecked != isChecked)
+              ? FloatingActionButton(
+                  backgroundColor: Colors.red,
+                  onPressed: () {},
+                  child: Icon(Icons.remove),
+                  mini: true,
+                )
+              : FloatingActionButton(
+                  child: Icon(Icons.remove),
+                  mini: true,
+                  onPressed: () {
+                    _decrementCounter();
+                    _controller.value =
+                        _controller.value.copyWith(text: _counter.toString());
+                  },
+                ),
+          // FloatingActionButton(
+          //   mini: true,
+          //   onPressed: () {
+          //     context.read<CounterCubit>().cubitDecrement(-1);
+          //   },
+          //   key: const Key('counterView_decrement_floatingActionButton'),
+          //   child: const Icon(Icons.remove),
+          // ),
+          // SizedBox(
+          //   width: 10,
+          //   height: 10,
+          //   child: BlocBuilder<CounterCubit, CounterState>(
+          //     builder: (_, cubitState) => Text(
+          //       (cubitState is CountercubitstateFilled)
+          //           ? "${cubitState.value}"
+          //           : "-",
+          //       style: poppinsStyle(fontSize: 16),
+          //     ),
+          //   ),
+          // ),
+
           SizedBox(
             width: 50,
+            // child: TextFormField(
+            //   controller: _controller,
+            // ),
             // height: 10,
             child: Flexible(
-              child: TextField(
-                controller: widget.controller,
-                textAlign: TextAlign.center,
-                readOnly: (isChecked = isChecked) ? false : true,
-                keyboardType: TextInputType.number,
+              child: Directionality(
+                textDirection: TextDirection.rtl,
+                child: TextField(
+                  maxLength: 2,
+                  decoration: InputDecoration(
+                    // hintText: '$_counter',
+                    counterText: '',
+                    labelText: widget.labelText,
+                  ),
+                  controller: _controller,
+                  textAlign: TextAlign.center,
+                  readOnly: (isChecked = isChecked) ? false : true,
+                  keyboardType: TextInputType.number,
+                ),
               ),
             ),
           ),
-          Text(
-            widget.lastText,
-            style: poppinsStyle(),
+          // FloatingActionButton(
+          //   mini: true,
+          //   onPressed: () {
+          //     context.read<CounterCubit>().cubitIncrement(1);
+          //   },
+          //   key: const Key('counterView_decrement_floatingActionButton'),
+          //   child: const Icon(Icons.remove),
+          // ),
+          FloatingActionButton(
+            child: Icon(Icons.add),
+            mini: true,
+            tooltip: 'Increment',
+            onPressed: () {
+              _incrementCounter();
+              _controller.value = _controller.value.copyWith(
+                text: _counter.toString(),
+              );
+            },
           ),
         ],
       ),
-
-      //   child: Row(
-      //     children: [
-      //       Positioned(left: 0, child: Text("data")),
-      //       Positioned(
-      //         right: 0,
-      //         child: SizedBox(
-      //           width: 20,
-      //           height: 20,
-      //           child: Flexible(
-      //             child: TextField(),
-      //           ),
-      //         ),
-      //       ),
-      //       Positioned(right: 0, child: Text("data2")),
-      //     ],
-      //   ),
     );
   }
 }
