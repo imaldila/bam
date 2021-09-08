@@ -64,22 +64,35 @@ class _CheckBoxFieldState extends State<CheckBoxField> {
             style: poppinsStyle(),
           ),
           Spacer(),
-          (isChecked != isChecked)
-              ? FloatingActionButton(
-                  backgroundColor: Colors.red,
-                  onPressed: () {},
-                  child: Icon(Icons.remove),
-                  mini: true,
-                )
-              : FloatingActionButton(
-                  child: Icon(Icons.remove),
-                  mini: true,
-                  onPressed: () {
-                    _decrementCounter();
-                    _controller.value =
-                        _controller.value.copyWith(text: _counter.toString());
-                  },
-                ),
+          IconButton(
+            onPressed: () {
+              (_counter > 0 ? _decrementCounter() : 0);
+            },
+            icon: Icon(Icons.remove),
+          ),
+          Text("$_counter"),
+          IconButton(
+            onPressed: () {
+              _incrementCounter();
+            },
+            icon: Icon(Icons.add),
+          ),
+          // (isChecked != isChecked)
+          //     ? FloatingActionButton(
+          //         backgroundColor: Colors.red,
+          //         onPressed: () {},
+          //         child: Icon(Icons.remove),
+          //         mini: true,
+          //       )
+          //     : FloatingActionButton(
+          //         child: Icon(Icons.remove),
+          //         mini: true,
+          //         onPressed: () {
+          //           _decrementCounter();
+          //           _controller.value =
+          //               _controller.value.copyWith(text: _counter.toString());
+          //         },
+          //       ),
           // FloatingActionButton(
           //   mini: true,
           //   onPressed: () {
@@ -101,30 +114,30 @@ class _CheckBoxFieldState extends State<CheckBoxField> {
           //   ),
           // ),
 
-          SizedBox(
-            width: 50,
-            // child: TextFormField(
-            //   controller: _controller,
-            // ),
-            // height: 10,
-            child: Flexible(
-              child: Directionality(
-                textDirection: TextDirection.rtl,
-                child: TextField(
-                  maxLength: 2,
-                  decoration: InputDecoration(
-                    // hintText: '$_counter',
-                    counterText: '',
-                    labelText: widget.labelText,
-                  ),
-                  controller: _controller,
-                  textAlign: TextAlign.center,
-                  readOnly: (isChecked = isChecked) ? false : true,
-                  keyboardType: TextInputType.number,
-                ),
-              ),
-            ),
-          ),
+          // SizedBox(
+          //   width: 50,
+          //   // child: TextFormField(
+          //   //   controller: _controller,
+          //   // ),
+          //   // height: 10,
+          //   child: Flexible(
+          //     child: Directionality(
+          //       textDirection: TextDirection.rtl,
+          //       child: TextField(
+          //         maxLength: 2,
+          //         decoration: InputDecoration(
+          //           // hintText: '$_counter',
+          //           counterText: '',
+          //           labelText: widget.labelText,
+          //         ),
+          //         controller: _controller,
+          //         textAlign: TextAlign.center,
+          //         readOnly: (isChecked = isChecked) ? false : true,
+          //         keyboardType: TextInputType.number,
+          //       ),
+          //     ),
+          //   ),
+          // ),
           // FloatingActionButton(
           //   mini: true,
           //   onPressed: () {
@@ -133,17 +146,17 @@ class _CheckBoxFieldState extends State<CheckBoxField> {
           //   key: const Key('counterView_decrement_floatingActionButton'),
           //   child: const Icon(Icons.remove),
           // ),
-          FloatingActionButton(
-            child: Icon(Icons.add),
-            mini: true,
-            tooltip: 'Increment',
-            onPressed: () {
-              _incrementCounter();
-              _controller.value = _controller.value.copyWith(
-                text: _counter.toString(),
-              );
-            },
-          ),
+          // FloatingActionButton(
+          //   child: Icon(Icons.add),
+          //   mini: true,
+          //   tooltip: 'Increment',
+          //   onPressed: () {
+          //     _incrementCounter();
+          //     _controller.value = _controller.value.copyWith(
+          //       text: _counter.toString(),
+          //     );
+          //   },
+          // ),
         ],
       ),
     );

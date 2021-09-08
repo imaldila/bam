@@ -13,7 +13,8 @@ class AssuranceForm extends StatefulWidget {
 
 final TextEditingController snOntController = TextEditingController();
 final TextEditingController snStbController = TextEditingController();
-final TextEditingController dcController = TextEditingController();
+final TextEditingController pc80Controller = TextEditingController();
+final TextEditingController pc50Controller = TextEditingController();
 
 class _AssuranceFormState extends State<AssuranceForm> {
   bool isChecked = false;
@@ -24,24 +25,60 @@ class _AssuranceFormState extends State<AssuranceForm> {
         child: Column(
           children: [
             FormInputField(
+              maxLenght: 20,
               controller: snOntController,
               hintText: "SN ONT",
             ),
             FormInputField(
+              maxLenght: 33,
               controller: snStbController,
               hintText: "SN STB",
             ),
             CheckBoxField(
-              text: "Dropcore 80 Meter",
+              text: "Preconnector 80 Meter",
               labelText: "Jml",
-              controller: dcController,
+              controller: pc80Controller,
             ),
-            //  CheckBoxField(
-            //   text: "Dropcore 50 Meter",
-            //   labelText: "Jml",
-            //   controller: null,
-            // ),
-            
+            CheckBoxField(
+              text: "Preconnector 50 Meter",
+              labelText: "Jml",
+              controller: pc50Controller,
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(
+                kDefaultPadding,
+                kDefaultPadding,
+                kDefaultPadding,
+                0,
+              ),
+              child: Row(
+                children: [
+                  Checkbox(
+                    value: isChecked,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value!;
+                      });
+                    },
+                  ),
+                  Text("Drop Core"),
+                  Spacer(),
+                  SizedBox(
+                    width: 45,
+                    child: TextField(
+                      textAlign: TextAlign.center,
+                      keyboardType: TextInputType.number,
+                      readOnly: (isChecked = isChecked) ? false : true,
+                      maxLength: 3,
+                      decoration: InputDecoration(
+                        counterText: '',
+                      ),
+                    ),
+                  ),
+                  Text("Meter")
+                ],
+              ),
+            )
           ],
         ),
       ),
