@@ -8,12 +8,15 @@ class FormInputField extends StatelessWidget {
   final String? hintText;
   final ValueChanged<String>? onChange;
   final int? maxLenght;
+  // final TextCapitalization textCapitalization;
 
   const FormInputField({
     Key? key,
     this.hintText,
     this.onChange,
-    required this.controller, this.maxLenght,
+    required this.controller,
+    this.maxLenght,
+    // this.textCapitalization,
   }) : super(key: key);
 
   @override
@@ -30,10 +33,12 @@ class FormInputField extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         shadowColor: Colors.white,
         child: TextField(
+          // textCapitalization: textCapitalization,
           maxLength: maxLenght,
           controller: controller,
           onChanged: onChange,
           style: GoogleFonts.poppins(),
+          keyboardType: TextInputType.text,
           decoration: InputDecoration(
               counterText: "",
               border: OutlineInputBorder(

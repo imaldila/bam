@@ -1,10 +1,5 @@
 // import 'dart:html';
 
-import 'package:bam_project/counter/cubit/counter_cubit.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:number_inc_dec/number_inc_dec.dart';
-
 import '../../../constants.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +7,6 @@ class CheckBoxField extends StatefulWidget {
   final text;
   final lastText;
   final controller;
-
   final labelText;
 
   const CheckBoxField(
@@ -22,7 +16,7 @@ class CheckBoxField extends StatefulWidget {
   _CheckBoxFieldState createState() => _CheckBoxFieldState();
 }
 
-final TextEditingController _controller = TextEditingController();
+// final TextEditingController _controller = TextEditingController();
 
 class _CheckBoxFieldState extends State<CheckBoxField> {
   bool isChecked = false;

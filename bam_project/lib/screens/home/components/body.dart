@@ -43,8 +43,10 @@ class Body extends StatelessWidget {
                 child: NewButton(
                   text: "Create BA",
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FormBa1()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FormCustomer()));
                   },
                 ),
               ),

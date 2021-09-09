@@ -6,17 +6,17 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'components/body_customer.dart';
 
-class FormBa1 extends StatefulWidget {
+class FormCustomer extends StatefulWidget {
   @override
-  _FormBa1State createState() => _FormBa1State();
+  _FormCustomerState createState() => _FormCustomerState();
 }
 
-class _FormBa1State extends State<FormBa1> {
+class _FormCustomerState extends State<FormCustomer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body1(),
+      body: BodyCustomer(),
     );
   }
 

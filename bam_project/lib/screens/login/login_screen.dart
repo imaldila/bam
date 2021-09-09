@@ -5,9 +5,25 @@ import 'package:bam_project/controllers/firebase/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class LoginScreen extends StatelessWidget {
+import 'components/logo_login.dart';
+import 'components/text_login.dart';
+
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,37 +35,11 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: size.width * 0.35,
-                //height: 140,
-                child: Image(
-                  image: AssetImage('assets/images/logo_ccan.png'),
-                  fit: BoxFit.contain,
-                ),
-              ),
+              LogoLogin(),
               SizedBox(
                 height: size.height * 0.02,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("BGES",
-                      style: TextStyle(
-                          fontFamily: "ChunkFive",
-                          fontSize: 36,
-                          shadows: [
-                            BoxShadow(
-                                blurRadius: 4,
-                                color: Colors.black54,
-                                spreadRadius: 4)
-                          ])),
-                  Text(".",
-                      style: TextStyle(
-                          fontFamily: "ChunkFive",
-                          fontSize: 36,
-                          color: Colors.red)),
-                ],
-              ),
+              TextLogin(),
               SizedBox(
                 height: size.height * 0.02,
               ),

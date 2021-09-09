@@ -6,17 +6,18 @@ import 'package:bam_project/screens/forms/components/list_button.dart';
 import 'package:bam_project/screens/forms/form_ba_customer_screen.dart';
 import 'package:bam_project/screens/forms/form_ba_material_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class Body1 extends StatefulWidget {
-  const Body1({
+class BodyCustomer extends StatefulWidget {
+  const BodyCustomer({
     Key? key,
   }) : super(key: key);
 
   @override
-  _Body1State createState() => _Body1State();
+  _BodyCustomerState createState() => _BodyCustomerState();
 }
 
-class _Body1State extends State<Body1> {
+class _BodyCustomerState extends State<BodyCustomer> {
   final TextEditingController ticketController = TextEditingController();
   final TextEditingController ndController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
@@ -26,14 +27,16 @@ class _Body1State extends State<Body1> {
 
   DateTime selectedDate = DateTime.now();
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   ticketController.dispose();
-  //   nameController.dispose();
-  //   addressController.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    ticketController.dispose();
+    ndController.dispose();
+    nameController.dispose();
+    addressController.dispose();
+    picController.dispose();
+    dateController.dispose();
+    super.dispose();
+  }
 
   String? _valLayanan;
   List _listlayanan = ['Pasang Baru', 'Gangguan'];
@@ -115,10 +118,10 @@ class _Body1State extends State<Body1> {
                 // ignore: unrelated_type_equality_checks
                 if (_valLayanan == 'Gangguan') {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => FormBa2()));
+                      MaterialPageRoute(builder: (context) => FormMaterial()));
                 } else {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => FormBa1()));
+                      MaterialPageRoute(builder: (context) => FormCustomer()));
                 }
 
                 // Navigator.push(

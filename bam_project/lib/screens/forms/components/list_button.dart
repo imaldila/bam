@@ -45,7 +45,7 @@ class _ListButtonState extends State<ListButton> {
             right: kDefaultPadding,
           ),
           child: DropdownButton(
-            key: widget.newKey ,
+            key: widget.newKey,
             hint: Text(
               widget.hint,
               style: GoogleFonts.montserrat(),

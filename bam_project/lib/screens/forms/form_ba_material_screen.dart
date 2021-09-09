@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FormBa2 extends StatelessWidget {
-  const FormBa2({Key? key}) : super(key: key);
+class FormMaterial extends StatelessWidget {
+  const FormMaterial({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body2(),
+      body: BodyMaterial(),
     );
   }
 

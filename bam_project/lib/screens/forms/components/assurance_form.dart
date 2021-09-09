@@ -2,7 +2,6 @@ import 'package:bam_project/constants.dart';
 import 'package:bam_project/screens/forms/components/checkbox_field.dart';
 import 'package:bam_project/screens/forms/components/form_input_field.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AssuranceForm extends StatefulWidget {
   const AssuranceForm({Key? key}) : super(key: key);
@@ -15,6 +14,14 @@ final TextEditingController snOntController = TextEditingController();
 final TextEditingController snStbController = TextEditingController();
 final TextEditingController pc80Controller = TextEditingController();
 final TextEditingController pc50Controller = TextEditingController();
+
+@override
+void dispose() {
+  snOntController.dispose();
+  snStbController.dispose();
+  pc80Controller.dispose();
+  pc50Controller.dispose();
+}
 
 class _AssuranceFormState extends State<AssuranceForm> {
   bool isChecked = false;
