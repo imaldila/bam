@@ -32,12 +32,22 @@ class FormAddressField extends StatelessWidget {
           onChanged: onChange,
           style: GoogleFonts.poppins(),
           maxLines: 4,
+          keyboardType: TextInputType.streetAddress,
+          textCapitalization: TextCapitalization.words,
           decoration: InputDecoration(
+              labelText: "Alamat",
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.transparent)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
-                borderSide: BorderSide.none,
+
+                // borderSide: BorderSide.none,
               ),
-              hintText: hintText, contentPadding: EdgeInsets.only(left: kDefaultPadding, right: kDefaultPadding,top: kDefaultPadding)),
+              hintText: hintText,
+              contentPadding: EdgeInsets.only(
+                  left: kDefaultPadding,
+                  right: kDefaultPadding,
+                  top: kDefaultPadding)),
         ),
       ),
     );

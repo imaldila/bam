@@ -6,7 +6,6 @@ import 'package:bam_project/screens/forms/components/list_button.dart';
 import 'package:bam_project/screens/forms/form_ba_customer_screen.dart';
 import 'package:bam_project/screens/forms/form_ba_material_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class BodyCustomer extends StatefulWidget {
   const BodyCustomer({
@@ -88,21 +87,34 @@ class _BodyCustomerState extends State<BodyCustomer> {
                 }),
             MyDatePicker(),
             FormInputField(
-                controller: ticketController,
-                hintText: "No Tiket / SC",
-                onChange: (value) {}),
+              controller: ticketController,
+              hintText: "No Ticket / SC",
+              onChange: (value) {},
+              labelText: "No Ticket / SC",
+              textCapitalization: TextCapitalization.characters,
+              maxLenght: 15,
+            ),
             FormInputField(
                 controller: ndController,
                 hintText: "No Inet / Tlp / SID",
+                labelText: "No Inet / Tlp / SID",
+                keyboardType: TextInputType.number,
+                maxLenght: 22,
                 onChange: (value) {}),
             FormInputField(
               controller: nameController,
               hintText: "Nama Pelanggan",
+              labelText: "Nama Pelanggan",
+              keyboardType: TextInputType.name,
+              textCapitalization: TextCapitalization.words,
               onChange: (value) {},
             ),
             FormInputField(
               controller: picController,
               hintText: "PIC / No HP Pelanggan",
+              labelText: "PIC / No HP Pelanggan",
+              keyboardType: TextInputType.number,
+              maxLenght: 24,
               onChange: (value) {},
             ),
             FormAddressField(

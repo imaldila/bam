@@ -3,22 +3,22 @@
 import '../../../constants.dart';
 import 'package:flutter/material.dart';
 
-class CheckBoxField extends StatefulWidget {
+class CheckBoxIncDec extends StatefulWidget {
   final text;
   final lastText;
   final controller;
   final labelText;
 
-  const CheckBoxField(
+  const CheckBoxIncDec(
       {Key? key, this.text, this.lastText, this.controller, this.labelText})
       : super(key: key);
   @override
-  _CheckBoxFieldState createState() => _CheckBoxFieldState();
+  _CheckBoxIncDecState createState() => _CheckBoxIncDecState();
 }
 
 // final TextEditingController _controller = TextEditingController();
 
-class _CheckBoxFieldState extends State<CheckBoxField> {
+class _CheckBoxIncDecState extends State<CheckBoxIncDec> {
   bool isChecked = false;
 
   int _counter = 0;
@@ -46,13 +46,12 @@ class _CheckBoxFieldState extends State<CheckBoxField> {
       child: Row(
         children: [
           Checkbox(
-            value: isChecked,
-            onChanged: (value) {
-              setState(() {
-                isChecked = value!;
-              });
-            },
-          ),
+              value: isChecked,
+              onChanged: (value) {
+                setState(() {
+                  isChecked = value!;
+                });
+              }),
           Text(
             widget.text,
             style: poppinsStyle(),
@@ -60,14 +59,14 @@ class _CheckBoxFieldState extends State<CheckBoxField> {
           Spacer(),
           IconButton(
             onPressed: () {
-              (_counter > 0 ? _decrementCounter() : 0);
+              (isChecked = isChecked) ? (_counter > 0 ? _decrementCounter() : 0) : {};
             },
             icon: Icon(Icons.remove),
           ),
           Text("$_counter"),
           IconButton(
             onPressed: () {
-              _incrementCounter();
+              (isChecked = isChecked) ? _incrementCounter() : {};
             },
             icon: Icon(Icons.add),
           ),
