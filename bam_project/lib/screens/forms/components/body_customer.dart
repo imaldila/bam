@@ -1,4 +1,5 @@
 import 'package:bam_project/components/new_button.dart';
+import 'package:bam_project/screens/details/detail_screen.dart';
 import 'package:bam_project/screens/forms/components/date_picker.dart';
 import 'package:bam_project/screens/forms/components/form_address_field.dart';
 import 'package:bam_project/screens/forms/components/form_input_field.dart';
@@ -6,6 +7,7 @@ import 'package:bam_project/screens/forms/components/list_button.dart';
 import 'package:bam_project/screens/forms/form_ba_customer_screen.dart';
 import 'package:bam_project/screens/forms/form_ba_material_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 class BodyCustomer extends StatefulWidget {
   const BodyCustomer({
@@ -87,6 +89,7 @@ class _BodyCustomerState extends State<BodyCustomer> {
                 }),
             MyDatePicker(),
             FormInputField(
+              requiredValidator: RequiredValidator(errorText: "req"),
               controller: ticketController,
               hintText: "No Ticket / SC",
               onChange: (value) {},
@@ -133,11 +136,8 @@ class _BodyCustomerState extends State<BodyCustomer> {
                       MaterialPageRoute(builder: (context) => FormMaterial()));
                 } else {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => FormCustomer()));
+                      MaterialPageRoute(builder: (context) => DetailScreen()));
                 }
-
-                // Navigator.push(
-                //     context, MaterialPageRoute(builder: (context) => FormBa2()));
               },
             ),
           )

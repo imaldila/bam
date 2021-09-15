@@ -30,6 +30,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^7.2.0
   flutter_svg: ^0.22.0
+  form_field_validator: ^1.1.0
   google_fonts: ^2.1.0
   intl: ^0.17.0
   number_inc_dec: ^0.8.0

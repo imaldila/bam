@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../constants.dart';
@@ -11,6 +12,7 @@ class FormInputField extends StatelessWidget {
   final TextCapitalization textCapitalization;
   final String? labelText;
   final TextInputType? keyboardType;
+  final RequiredValidator? requiredValidator;
 
   const FormInputField({
     Key? key,
@@ -19,7 +21,8 @@ class FormInputField extends StatelessWidget {
     required this.controller,
     this.maxLenght,
     this.textCapitalization = TextCapitalization.none,
-    this.labelText, this.keyboardType,
+    this.labelText,
+    this.keyboardType, this.requiredValidator,
   }) : super(key: key);
 
   @override
@@ -36,6 +39,7 @@ class FormInputField extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         shadowColor: Colors.white,
         child: TextFormField(
+          validator: requiredValidator!,
           textCapitalization: textCapitalization,
           maxLength: maxLenght,
           controller: controller,

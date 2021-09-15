@@ -59,7 +59,9 @@ class _CheckBoxIncDecState extends State<CheckBoxIncDec> {
           Spacer(),
           IconButton(
             onPressed: () {
-              (isChecked = isChecked) ? (_counter > 0 ? _decrementCounter() : 0) : {};
+              (isChecked = isChecked)
+                  ? (_counter > 0 ? _decrementCounter() : 0)
+                  : {};
             },
             icon: Icon(Icons.remove),
           ),
