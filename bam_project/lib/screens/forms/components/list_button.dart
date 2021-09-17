@@ -27,45 +27,37 @@ class ListButton extends StatefulWidget {
 class _ListButtonState extends State<ListButton> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(
-        kDefaultPadding,
-        kDefaultPadding,
-        kDefaultPadding,
-        0,
-      ),
-      child: Material(
-        elevation: 8,
-        borderRadius: BorderRadius.circular(8),
-        shadowColor: Colors.white,
-        child: Container(
-          margin: EdgeInsets.only(top: 6, bottom: 6),
-          padding: EdgeInsets.only(
-            left: kDefaultPadding,
-            right: kDefaultPadding,
+    return Material(
+      elevation: 8,
+      borderRadius: BorderRadius.circular(8),
+      shadowColor: Colors.white,
+      child: Container(
+        margin: EdgeInsets.only(top: 6, bottom: 6),
+        padding: EdgeInsets.only(
+          left: defaultPadding,
+          right: defaultPadding,
+        ),
+        child: DropdownButton(
+          key: widget.newKey,
+          hint: Text(
+            widget.hint,
+            style: GoogleFonts.montserrat(),
           ),
-          child: DropdownButton(
-            key: widget.newKey,
-            hint: Text(
-              widget.hint,
-              style: GoogleFonts.montserrat(),
-            ),
-            dropdownColor: Colors.white,
-            icon: SvgPicture.asset(
-              'assets/icons/ic_button.svg',
-              color: Color(0xFF2D9CDB),
-            ),
-            iconSize: 36,
-            isExpanded: true,
-            underline: SizedBox(),
-            style: GoogleFonts.poppins(
-              fontSize: 16,
-              color: Colors.black,
-            ),
-            value: widget.value,
-            onChanged: widget.onChange,
-            items: widget.items,
+          dropdownColor: Colors.white,
+          icon: SvgPicture.asset(
+            'assets/icons/ic_button.svg',
+            color: Color(0xFF2D9CDB),
           ),
+          iconSize: 36,
+          isExpanded: true,
+          underline: SizedBox(),
+          style: GoogleFonts.poppins(
+            fontSize: 16,
+            color: Colors.black,
+          ),
+          value: widget.value,
+          onChanged: widget.onChange,
+          items: widget.items,
         ),
       ),
     );

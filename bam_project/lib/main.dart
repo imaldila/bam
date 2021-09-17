@@ -8,6 +8,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
+import 'constants.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -36,6 +38,19 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Wrapper(),
+        theme: ThemeData(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.all(defaultPadding),
+            elevation: 10,
+            primary: primaryColor,
+          )),
+          inputDecorationTheme: InputDecorationTheme(
+            border: textFieldBorder,
+            enabledBorder: textFieldBorder,
+            // focusedBorder: textFieldBorder,
+          ),
+        ),
       ),
     );
   }

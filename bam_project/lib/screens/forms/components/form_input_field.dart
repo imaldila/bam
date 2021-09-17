@@ -12,7 +12,7 @@ class FormInputField extends StatelessWidget {
   final TextCapitalization textCapitalization;
   final String? labelText;
   final TextInputType? keyboardType;
-  final RequiredValidator? requiredValidator;
+  // final RequiredValidator requiredValidator = (errorText: 'this field is required');
 
   const FormInputField({
     Key? key,
@@ -22,16 +22,17 @@ class FormInputField extends StatelessWidget {
     this.maxLenght,
     this.textCapitalization = TextCapitalization.none,
     this.labelText,
-    this.keyboardType, this.requiredValidator,
+    this.keyboardType,
+    // this.requiredValidator,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(
-        kDefaultPadding,
-        kDefaultPadding,
-        kDefaultPadding,
+        defaultPadding,
+        defaultPadding,
+        defaultPadding,
         0,
       ),
       child: Material(
@@ -39,7 +40,7 @@ class FormInputField extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         shadowColor: Colors.white,
         child: TextFormField(
-          validator: requiredValidator!,
+          // validator: requiredValidator,
           textCapitalization: textCapitalization,
           maxLength: maxLenght,
           controller: controller,
@@ -56,7 +57,7 @@ class FormInputField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
               hintText: hintText,
-              contentPadding: EdgeInsets.all(kDefaultPadding)),
+              contentPadding: EdgeInsets.all(defaultPadding)),
         ),
       ),
     );

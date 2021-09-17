@@ -25,7 +25,7 @@ class RoundedPasswordField extends StatelessWidget {
               onTap: () {},
               child: Icon(
                 Icons.visibility,
-                color: kPrimaryLightColor,
+                color: primaryLightColor,
               ),
             ),
             border: InputBorder.none),

@@ -23,9 +23,9 @@ class _CheckBoxFormState extends State<CheckBoxForm> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(
-        kDefaultPadding,
-        kDefaultPadding,
-        kDefaultPadding * 1.2,
+        defaultPadding,
+        defaultPadding,
+        defaultPadding * 1.2,
         0,
       ),
       child: Row(

@@ -1,4 +1,5 @@
 import 'package:bam_project/screens/details/detail_screen.dart';
+import 'package:bam_project/screens/forms/customers/customer_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,12 +14,12 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(kDefaultPadding * 1.5),
-          bottomRight: Radius.circular(kDefaultPadding * 1.5),
+          bottomLeft: Radius.circular(defaultPadding * 1.5),
+          bottomRight: Radius.circular(defaultPadding * 1.5),
         ),
       ),
       child: ListView.builder(
@@ -41,7 +42,7 @@ class HomeBody extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.only(bottom: 10),
                       elevation: 5,
-                      primary: kPrimaryColor,
+                      primary: primaryColor,
                       alignment: Alignment.bottomCenter),
                   child: Text(
                     "BA on Progress",
@@ -52,7 +53,7 @@ class HomeBody extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: kDefaultPadding,
+              width: defaultPadding,
             ),
             Container(
               height: size.height * 0.22,
@@ -60,11 +61,16 @@ class HomeBody extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(22),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CustomerScreen()));
+                  },
                   style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.only(bottom: 10),
                       elevation: 5,
-                      primary: kPrimaryColor,
+                      primary: primaryColor,
                       alignment: Alignment.bottomCenter),
                   child: Text(
                     "BA Completed",

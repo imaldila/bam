@@ -38,9 +38,9 @@ class _CheckBoxIncDecState extends State<CheckBoxIncDec> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(
-        kDefaultPadding,
-        kDefaultPadding,
-        kDefaultPadding,
+        defaultPadding,
+        defaultPadding,
+        defaultPadding,
         0,
       ),
       child: Row(

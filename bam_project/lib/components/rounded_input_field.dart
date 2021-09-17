@@ -29,7 +29,7 @@ class RoundedInputField extends StatelessWidget {
           border: InputBorder.none,
           suffixIcon: Icon(
             icon,
-            color: kPrimaryLightColor,
+            color: primaryLightColor,
           ),
         ),
         //keyboardType: TextInputType.number,

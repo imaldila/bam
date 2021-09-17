@@ -2,6 +2,7 @@ import 'package:bam_project/screens/forms/components/checkbox_form.dart';
 import 'package:bam_project/screens/forms/components/checkbox_inc_dec.dart';
 import 'package:bam_project/screens/forms/components/form_input_field.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 import '../../../constants.dart';
 
@@ -29,6 +30,7 @@ void dispose() {
 
 class _AssuranceFormState extends State<AssuranceForm> {
   bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,6 +43,7 @@ class _AssuranceFormState extends State<AssuranceForm> {
               // hintText: "SN ONT",
               textCapitalization: TextCapitalization.characters,
               labelText: "SN ONT",
+              // requiredValidator: RequiredValidator(errorText: ""),
             ),
             FormInputField(
               maxLenght: 33,
@@ -48,6 +51,7 @@ class _AssuranceFormState extends State<AssuranceForm> {
               // hintText: "SN STB",
               textCapitalization: TextCapitalization.characters,
               labelText: "SN STB",
+              // requiredValidator: (RequiredValidator(errorText: "")),
             ),
             CheckBoxIncDec(
               text: "Preconnector 80 Meter",

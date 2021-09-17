@@ -18,9 +18,9 @@ class FormAddressField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(
-        kDefaultPadding,
-        kDefaultPadding,
-        kDefaultPadding,
+        defaultPadding,
+        defaultPadding,
+        defaultPadding,
         0,
       ),
       child: Material(
@@ -45,9 +45,9 @@ class FormAddressField extends StatelessWidget {
               ),
               hintText: hintText,
               contentPadding: EdgeInsets.only(
-                  left: kDefaultPadding,
-                  right: kDefaultPadding,
-                  top: kDefaultPadding)),
+                  left: defaultPadding,
+                  right: defaultPadding,
+                  top: defaultPadding)),
         ),
       ),
     );

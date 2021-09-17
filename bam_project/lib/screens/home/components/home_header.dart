@@ -12,7 +12,7 @@ class HomeHeader extends StatelessWidget {
     return Container(
       height: headerHeight,
       color: Colors.white,
-      padding: const EdgeInsets.all(kDefaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
