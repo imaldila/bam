@@ -35,9 +35,9 @@ class HomeBody extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => DetailScreen()),
-                    );
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.only(bottom: 10),

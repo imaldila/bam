@@ -30,8 +30,10 @@ class _ListButtonState extends State<ListButton> {
     return Material(
       elevation: 8,
       borderRadius: BorderRadius.circular(8),
+      color: Colors.white,
       shadowColor: Colors.white,
       child: Container(
+        color: Colors.white,
         margin: EdgeInsets.only(top: 6, bottom: 6),
         padding: EdgeInsets.only(
           left: defaultPadding,
@@ -51,10 +53,7 @@ class _ListButtonState extends State<ListButton> {
           iconSize: 36,
           isExpanded: true,
           underline: SizedBox(),
-          style: GoogleFonts.poppins(
-            fontSize: 16,
-            color: Colors.black,
-          ),
+          style: poppinsStyle(color: Colors.black),
           value: widget.value,
           onChanged: widget.onChange,
           items: widget.items,

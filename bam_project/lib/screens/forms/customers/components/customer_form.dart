@@ -6,28 +6,37 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../constants.dart';
 
 // ignore: must_be_immutable
-class CustomerForm extends StatelessWidget {
+class CustomerForm extends StatefulWidget {
   CustomerForm({
     Key? key,
     required this.formKey,
-    this.ticketController,
-    this.ndController,
-    this.nameController,
-    this.addressController,
-    this.picController,
-    this.dateController,
-    this.controllerUsername,
   }) : super(key: key);
 
-  final TextEditingController? ticketController;
-  final TextEditingController? ndController;
-  final TextEditingController? nameController;
-  final TextEditingController? addressController;
-  final TextEditingController? picController;
-  final TextEditingController? dateController;
-  final TextEditingController? controllerUsername;
-
   final GlobalKey formKey;
+
+  @override
+  _CustomerFormState createState() => _CustomerFormState();
+}
+
+class _CustomerFormState extends State<CustomerForm> {
+  final TextEditingController ticketController = TextEditingController();
+  final TextEditingController ndController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
+  final TextEditingController picController = TextEditingController();
+  final TextEditingController dateController = TextEditingController();
+  final TextEditingController controllerUsername = TextEditingController();
+
+  @override
+  void dispose() {
+    ticketController.dispose();
+    ndController.dispose();
+    nameController.dispose();
+    addressController.dispose();
+    picController.dispose();
+    dateController.dispose();
+    super.dispose();
+  }
 
   // ignore: unused_field
   late String _ticket, _nd, _name, _address, _pic, _username;
@@ -36,11 +45,12 @@ class CustomerForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     final requiredValidator =
-        RequiredValidator(errorText: 'this field is required !');
+        RequiredValidator(errorText: 'This field is required !');
     return Form(
       autovalidateMode: _autovalidateMode,
-      key: formKey,
+      key: widget.formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -68,6 +78,7 @@ class CustomerForm extends StatelessWidget {
                 onChanged: (value) {},
                 style: GoogleFonts.poppins(fontSize: 16),
                 decoration: InputDecoration(
+                  hintText: "SC-..  | IN..  | AO..",
                   // labelText: "No SC / No Tiket / No AO",
                   counterText: "",
                   contentPadding: EdgeInsets.all(defaultPadding),

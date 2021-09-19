@@ -1,14 +1,13 @@
 import 'package:bam_project/components/new_button.dart';
-import 'package:bam_project/constants.dart';
 import 'package:bam_project/screens/details/detail_screen.dart';
 import 'package:bam_project/screens/forms/components/date_picker.dart';
 import 'package:bam_project/screens/forms/components/form_address_field.dart';
 import 'package:bam_project/screens/forms/components/form_input_field.dart';
 import 'package:bam_project/screens/forms/components/list_button.dart';
-import 'package:bam_project/screens/forms/form_ba_customer_screen.dart';
-import 'package:bam_project/screens/forms/form_ba_material_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+
+import '../form_ba_material_screen.dart';
 
 class BodyCustomer extends StatefulWidget {
   final GlobalKey formKey;
@@ -139,19 +138,17 @@ class _BodyCustomerState extends State<BodyCustomer> {
               child: NewButton(
                 text: "Next",
                 onPressed: () {
-                  // if (_formKey.currentState!.validate()) {}
-                  // ignore: unrelated_type_equality_checks
-                  // if (_valLayanan == 'Gangguan') {
-                  //   Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //           builder: (context) => FormMaterial()));
-                  // } else {
-                  //   Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //           builder: (context) => DetailScreen()));
-                  // }
+                  if (_formKey.currentState!.validate()|| (_valLayanan == 'Gangguan')) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FormMaterial()));
+                  } else {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailScreen()));
+                  }
                 },
               ),
             )

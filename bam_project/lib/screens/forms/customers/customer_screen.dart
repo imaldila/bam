@@ -1,12 +1,15 @@
 import 'package:bam_project/components/text_field_name.dart';
 import 'package:bam_project/constants.dart';
+import 'package:bam_project/screens/details/detail_screen.dart';
 import 'package:bam_project/screens/forms/components/date_picker.dart';
 import 'package:bam_project/screens/forms/components/list_button.dart';
+import 'package:bam_project/screens/forms/form_ba_material_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'components/customer_form.dart';
+import 'components/dropdown_list.dart';
 
 class CustomerScreen extends StatefulWidget {
   const CustomerScreen({Key? key}) : super(key: key);
@@ -15,24 +18,23 @@ class CustomerScreen extends StatefulWidget {
   _CustomerScreenState createState() => _CustomerScreenState();
 }
 
-String? _valLayanan;
-List _listlayanan = ['Pasang Baru', 'Gangguan'];
-
-String? _valPaket;
-List _listPaket = [
-  '1P',
-  '2P',
-  '3P',
-  'DATIN',
-  'ASTINET',
-  'METRO-E',
-  'SIP-TRUNK',
-  'OTHERS'
-];
-
 class _CustomerScreenState extends State<CustomerScreen> {
   final _formKey = GlobalKey<FormState>();
-  AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
+
+  String? _valLayanan;
+  List _listlayanan = ['Pasang Baru', 'Gangguan'];
+
+  String? _valPaket;
+  List _listPaket = [
+    '1P',
+    '2P',
+    '3P',
+    'DATIN',
+    'ASTINET',
+    'METRO-E',
+    'SIP-TRUNK',
+    'OTHERS'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -47,38 +49,10 @@ class _CustomerScreenState extends State<CustomerScreen> {
               children: [
                 const SizedBox(height: defaultPadding),
                 TextFieldName(text: "Jenis Layanan"),
-                ListButton(
-                    hint: "Jenis Layanan",
-                    value: _valLayanan,
-                    items: _listlayanan.map((value) {
-                      return DropdownMenuItem(
-                        child: Text(value),
-                        value: value,
-                      );
-                    }).toList(),
-                    onChange: (value) {
-                      setState(() {
-                        _valLayanan = value;
-                      });
-                    }),
-                const SizedBox(height: defaultPadding),
-                ListButton(
-                    hint: "Jenis Paket",
-                    value: _valPaket,
-                    items: _listPaket.map((value) {
-                      return DropdownMenuItem(
-                        child: Text(value),
-                        value: value,
-                      );
-                    }).toList(),
-                    onChange: (value) {
-                      setState(() {
-                        _valPaket = value;
-                      });
-                    }),
+                DropDownList(),
                 const SizedBox(height: defaultPadding),
                 TextFieldName(text: "Tanggal"),
-                MyDatePicker(formKey: _formKey),
+                MyDatePicker(),
                 const SizedBox(height: defaultPadding),
                 CustomerForm(formKey: _formKey),
                 const SizedBox(height: defaultPadding),
@@ -88,9 +62,29 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     borderRadius: BorderRadius.circular(8),
                     child: ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save();
+                        if (_formKey.currentState!.validate() ||
+                            _valLayanan == "Gangguan") {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FormMaterial()));
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DetailScreen()));
                         }
+
+                        // (_formKey.currentState!.validate() ||
+                        //         _valLayanan == "Gangguan")
+                        //     ? Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) => FormMaterial()))
+                        //     : Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) => DetailScreen()));
                       },
                       child: Text(
                         "Next",

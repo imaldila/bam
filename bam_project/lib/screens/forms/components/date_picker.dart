@@ -6,8 +6,7 @@ import 'package:intl/intl.dart';
 import '../../../constants.dart';
 
 class MyDatePicker extends StatefulWidget {
-  const MyDatePicker({Key? key, this.formKey}) : super(key: key);
-  final GlobalKey? formKey;
+  const MyDatePicker({Key? key}) : super(key: key);
 
   @override
   _MyDatePickerState createState() => _MyDatePickerState();
@@ -49,7 +48,6 @@ class _MyDatePickerState extends State<MyDatePicker> {
         RequiredValidator(errorText: 'this field is required !');
     // ignore: unused_local_variable
     Size size = MediaQuery.of(context).size;
-    GlobalKey formKey;
 
     return SizedBox(
       width: double.infinity,
@@ -67,21 +65,18 @@ class _MyDatePickerState extends State<MyDatePicker> {
               ),
             ),
           ),
-          Form(
-            key: widget.formKey,
-            child: GestureDetector(
-              onTap: () => _selectDate(context),
-              child: AbsorbPointer(
-                child: TextFormField(
-                  validator: requiredValidator,
-                  onSaved: (date) => _date = date!,
-                  controller: dateController,
-                  onChanged: (value) {},
-                  style: GoogleFonts.poppins(fontSize: 16),
-                  decoration: InputDecoration(
-                    counterText: "",
-                    contentPadding: EdgeInsets.all(defaultPadding),
-                  ),
+          GestureDetector(
+            onTap: () => _selectDate(context),
+            child: AbsorbPointer(
+              child: TextFormField(
+                validator: requiredValidator,
+                onSaved: (date) => _date = date!,
+                controller: dateController,
+                onChanged: (value) {},
+                style: GoogleFonts.poppins(fontSize: 16),
+                decoration: InputDecoration(
+                  counterText: "",
+                  contentPadding: EdgeInsets.all(defaultPadding),
                 ),
               ),
             ),
