@@ -26,7 +26,8 @@ class _BodyCustomerState extends State<BodyCustomer> {
   final TextEditingController addressController = TextEditingController();
   final TextEditingController picController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
-  final requiredValidator = RequiredValidator(errorText: 'this field is required');
+  final requiredValidator =
+      RequiredValidator(errorText: 'this field is required');
 
   DateTime selectedDate = DateTime.now();
 
@@ -65,6 +66,7 @@ class _BodyCustomerState extends State<BodyCustomer> {
           children: [
             Column(children: [
               ListButton(
+                formKey: _formKey,
                   hint: "Jenis Layanan",
                   value: _valLayanan,
                   items: _listlayanan.map((value) {
@@ -79,6 +81,7 @@ class _BodyCustomerState extends State<BodyCustomer> {
                     });
                   }),
               ListButton(
+                formKey: _formKey,
                   hint: "Jenis Paket",
                   value: _valPaket,
                   items: _listPaket.map((value) {
@@ -92,7 +95,7 @@ class _BodyCustomerState extends State<BodyCustomer> {
                       _valPaket = value;
                     });
                   }),
-              MyDatePicker(),
+              MyDatePicker(formKey: _formKey,),
               FormInputField(
                 controller: ticketController,
                 hintText: "No Ticket / SC",
@@ -138,7 +141,9 @@ class _BodyCustomerState extends State<BodyCustomer> {
               child: NewButton(
                 text: "Next",
                 onPressed: () {
-                  if (_formKey.currentState!.validate()|| (_valLayanan == 'Gangguan')) {
+                  if (_formKey.currentState!.validate() ||
+                      (_valLayanan == 'Gangguan')) {
+                    _formKey.currentState!.save();
                     Navigator.push(
                         context,
                         MaterialPageRoute(

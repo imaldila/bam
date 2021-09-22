@@ -10,6 +10,8 @@ class ListButton extends StatefulWidget {
   final hint;
   final newKey;
   final ValueChanged? onChange;
+  final validator;
+  final GlobalKey formKey;
 
   const ListButton({
     Key? key,
@@ -17,7 +19,7 @@ class ListButton extends StatefulWidget {
     this.onChange,
     this.items,
     this.hint,
-    this.newKey,
+    this.newKey, this.validator, required this.formKey,
   }) : super(key: key);
 
   @override
@@ -27,36 +29,41 @@ class ListButton extends StatefulWidget {
 class _ListButtonState extends State<ListButton> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 8,
-      borderRadius: BorderRadius.circular(8),
-      color: Colors.white,
-      shadowColor: Colors.white,
-      child: Container(
+    return Form(
+      key: widget.formKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      child: Material(
+        elevation: 8,
+        borderRadius: BorderRadius.circular(8),
         color: Colors.white,
-        margin: EdgeInsets.only(top: 6, bottom: 6),
-        padding: EdgeInsets.only(
-          left: defaultPadding,
-          right: defaultPadding,
-        ),
-        child: DropdownButton(
-          key: widget.newKey,
-          hint: Text(
-            widget.hint,
-            style: GoogleFonts.montserrat(),
+        shadowColor: Colors.white,
+        child: Container(
+          color: Colors.white,
+          margin: EdgeInsets.only(top: 6, bottom: 6),
+          padding: EdgeInsets.only(
+            left: defaultPadding,
+            right: defaultPadding,
           ),
-          dropdownColor: Colors.white,
-          icon: SvgPicture.asset(
-            'assets/icons/ic_button.svg',
-            color: Color(0xFF2D9CDB),
+          child: DropdownButtonFormField(
+            validator: widget.validator,
+            key: widget.newKey,
+            hint: Text(
+              widget.hint,
+              style: GoogleFonts.montserrat(),
+            ),
+            dropdownColor: Colors.white,
+            icon: SvgPicture.asset(
+              'assets/icons/ic_button.svg',
+              color: Color(0xFF2D9CDB),
+            ),
+            iconSize: 36,
+            isExpanded: true,
+            // underline: SizedBox(),
+            style: poppinsStyle(color: Colors.black),
+            value: widget.value,
+            onChanged: widget.onChange,
+            items: widget.items,
           ),
-          iconSize: 36,
-          isExpanded: true,
-          underline: SizedBox(),
-          style: poppinsStyle(color: Colors.black),
-          value: widget.value,
-          onChanged: widget.onChange,
-          items: widget.items,
         ),
       ),
     );

@@ -3,12 +3,13 @@ import 'package:bam_project/constants.dart';
 import 'package:bam_project/screens/details/detail_screen.dart';
 import 'package:bam_project/screens/forms/components/date_picker.dart';
 import 'package:bam_project/screens/forms/components/list_button.dart';
-import 'package:bam_project/screens/forms/form_ba_material_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../form_ba_material_screen.dart';
 import 'components/customer_form.dart';
+import 'components/customer_list.dart';
 import 'components/dropdown_list.dart';
 
 class CustomerScreen extends StatefulWidget {
@@ -20,9 +21,12 @@ class CustomerScreen extends StatefulWidget {
 
 class _CustomerScreenState extends State<CustomerScreen> {
   final _formKey = GlobalKey<FormState>();
+  final _listKeyL = GlobalKey<FormState>();
+  final _listKeyP = GlobalKey<FormState>();
+  final _dateKey = GlobalKey<FormState>();
 
   String? _valLayanan;
-  List _listlayanan = ['Pasang Baru', 'Gangguan'];
+  List _listLayanan = ['Pasang Baru', 'Gangguan'];
 
   String? _valPaket;
   List _listPaket = [
@@ -49,10 +53,83 @@ class _CustomerScreenState extends State<CustomerScreen> {
               children: [
                 const SizedBox(height: defaultPadding),
                 TextFieldName(text: "Jenis Layanan"),
-                DropDownList(),
+                CustomerList(
+                  formKey: _listKeyL,
+                  value: _valLayanan,
+                  items: _listLayanan.map((value) {
+                    return DropdownMenuItem(
+                      child: Text(value),
+                      value: value,
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      _valLayanan = value!;
+                    });
+                  },
+                  validator: (value) =>
+                      value == null ? "This field is required" : null,
+                ),
                 const SizedBox(height: defaultPadding),
+                TextFieldName(text: "Jenis Paket"),
+                CustomerList(
+                  formKey: _listKeyP,
+                  value: _valPaket,
+                  items: _listPaket.map((value) {
+                    return DropdownMenuItem(
+                      child: Text(value),
+                      value: value,
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      _valPaket = value!;
+                    });
+                  },
+                  validator: (value) =>
+                      value == null ? "This field is required" : null,
+                ),
+                // DropDownList(),
+                // ListButton(
+                //   formKey: _formKey,
+                //   hint: "Jenis Layanan",
+                //   value: _valLayanan,
+                //   items: _listLayanan.map((value) {
+                //     return DropdownMenuItem(
+                //       child: Text(value),
+                //       value: value,
+                //     );
+                //   }).toList(),
+                //   onChange: (value) {
+                //     setState(() {
+                //       _valLayanan = value;
+                //     });
+                //   },
+                //   validator: (value) =>
+                //       value == null ? 'This field is required' : null,
+                // ),
+                const SizedBox(height: defaultPadding),
+                // TextFieldName(text: "Jenis Paket"),
+                // ListButton(
+                //   hint: "Jenis Paket",
+                //   value: _valPaket,
+                //   items: _listPaket.map((value) {
+                //     return DropdownMenuItem(
+                //       child: Text(value),
+                //       value: value,
+                //     );
+                //   }).toList(),
+                //   onChange: (value) {
+                //     setState(() {
+                //       _valPaket = value;
+                //     });
+                //   },
+                // ),
+                // const SizedBox(height: defaultPadding),
                 TextFieldName(text: "Tanggal"),
-                MyDatePicker(),
+                // MyDatePicker(
+                //   formKey: _dateKey,
+                // ),
                 const SizedBox(height: defaultPadding),
                 CustomerForm(formKey: _formKey),
                 const SizedBox(height: defaultPadding),
@@ -62,30 +139,59 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     borderRadius: BorderRadius.circular(8),
                     child: ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate() ||
-                            _valLayanan == "Gangguan") {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => FormMaterial()));
-                        } else {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => DetailScreen()));
+                        if (_listKeyP.currentState!.validate()) {
+                          _listKeyP.currentState!.save();
+                        } else if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save(); 
+                        } else if (_listKeyL.currentState!.validate()) {
+                          _listKeyL.currentState!.save();
+                          if (_valLayanan == "Gangguan") {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => FormMaterial()));
+                          } else {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DetailScreen()));
+                          }
                         }
 
-                        // (_formKey.currentState!.validate() ||
-                        //         _valLayanan == "Gangguan")
-                        //     ? Navigator.push(
+                        // if (_listKeyP.currentState!.validate() ||
+                        //     _listKeyL.currentState!.validate() ||
+                        //     _formKey.currentState!.validate()) {
+                        //   _listKeyP.currentState!.save();
+                        //   _listKeyL.currentState!.save();
+                        //   _formKey.currentState!.save();
+                        //   if (_valLayanan == "Gangguan") {
+                        //     Navigator.push(
                         //         context,
                         //         MaterialPageRoute(
-                        //             builder: (context) => FormMaterial()))
-                        //     : Navigator.push(
+                        //             builder: (context) => FormMaterial()));
+                        //   } else {
+                        //     Navigator.push(
                         //         context,
                         //         MaterialPageRoute(
                         //             builder: (context) => DetailScreen()));
+                        //   }
+                        // }
                       },
+
+                      // if (_formKey.currentState!.validate() ||
+                      //     _valLayanan == "Gangguan") {
+                      //   _formKey.currentState!.save();
+                      //   Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //           builder: (context) => FormMaterial()));
+                      // } else {
+                      //   Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //           builder: (context) => DetailScreen()));
+                      // }
+
                       child: Text(
                         "Next",
                         style: poppinsStyle(
@@ -125,6 +231,10 @@ class _CustomerScreenState extends State<CustomerScreen> {
     );
   }
 }
+
+
+
+
 
 // class CustomerScreen extends StatelessWidget {
 //   const CustomerScreen({Key? key}) : super(key: key);

@@ -45,7 +45,6 @@ class _CustomerFormState extends State<CustomerForm> {
 
   @override
   Widget build(BuildContext context) {
-    
     final requiredValidator =
         RequiredValidator(errorText: 'This field is required !');
     return Form(
@@ -78,8 +77,7 @@ class _CustomerFormState extends State<CustomerForm> {
                 onChanged: (value) {},
                 style: GoogleFonts.poppins(fontSize: 16),
                 decoration: InputDecoration(
-                  hintText: "SC-..  | IN..  | AO..",
-                  // labelText: "No SC / No Tiket / No AO",
+                  hintText: "SC1234  | IN1234  | AO 1-234",
                   counterText: "",
                   contentPadding: EdgeInsets.all(defaultPadding),
                 ),
@@ -111,7 +109,6 @@ class _CustomerFormState extends State<CustomerForm> {
                 onChanged: (value) {},
                 style: GoogleFonts.poppins(fontSize: 16),
                 decoration: InputDecoration(
-                  // labelText: "No Inet / Tlp / SID",
                   counterText: "",
                   contentPadding: EdgeInsets.all(defaultPadding),
                 ),
@@ -142,7 +139,6 @@ class _CustomerFormState extends State<CustomerForm> {
                 onChanged: (value) {},
                 style: GoogleFonts.poppins(fontSize: 16),
                 decoration: InputDecoration(
-                  // labelText: "Nama Pelanggan",
                   counterText: "",
                   contentPadding: EdgeInsets.all(defaultPadding),
                 ),
@@ -174,7 +170,6 @@ class _CustomerFormState extends State<CustomerForm> {
                 onChanged: (value) {},
                 style: GoogleFonts.poppins(fontSize: 16),
                 decoration: InputDecoration(
-                  // labelText: "No Hp Pelanggan / PIC",
                   counterText: "",
                   contentPadding: EdgeInsets.all(defaultPadding),
                 ),
@@ -207,7 +202,6 @@ class _CustomerFormState extends State<CustomerForm> {
                 onChanged: (value) {},
                 style: GoogleFonts.poppins(fontSize: 16),
                 decoration: InputDecoration(
-                  // labelText: "Alamat",
                   counterText: "",
                   contentPadding: EdgeInsets.all(defaultPadding),
                 ),

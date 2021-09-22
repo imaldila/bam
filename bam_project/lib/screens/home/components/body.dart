@@ -47,7 +47,7 @@ class Body extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => FormCustomer()));
+                            builder: (context) => CustomerScreen()));
                   },
                 ),
               ),

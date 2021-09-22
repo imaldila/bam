@@ -6,7 +6,9 @@ import 'package:intl/intl.dart';
 import '../../../constants.dart';
 
 class MyDatePicker extends StatefulWidget {
-  const MyDatePicker({Key? key}) : super(key: key);
+  const MyDatePicker({Key? key, required this.formKey}) : super(key: key);
+
+  final GlobalKey formKey;
 
   @override
   _MyDatePickerState createState() => _MyDatePickerState();
@@ -51,37 +53,39 @@ class _MyDatePickerState extends State<MyDatePicker> {
 
     return SizedBox(
       width: double.infinity,
-      child: Stack(
-        children: [
-          Material(
-            elevation: 8,
-            borderRadius: BorderRadius.circular(8),
-            shadowColor: Colors.white,
-            child: Container(
-              height: 60,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () => _selectDate(context),
-            child: AbsorbPointer(
-              child: TextFormField(
-                validator: requiredValidator,
-                onSaved: (date) => _date = date!,
-                controller: dateController,
-                onChanged: (value) {},
-                style: GoogleFonts.poppins(fontSize: 16),
-                decoration: InputDecoration(
-                  counterText: "",
-                  contentPadding: EdgeInsets.all(defaultPadding),
+      child: Form(
+        child: Stack(
+          children: [
+            Material(
+              elevation: 8,
+              borderRadius: BorderRadius.circular(8),
+              shadowColor: Colors.white,
+              child: Container(
+                height: 60,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
             ),
-          ),
-        ],
+            GestureDetector(
+              onTap: () => _selectDate(context),
+              child: AbsorbPointer(
+                child: TextFormField(
+                  validator: requiredValidator,
+                  onSaved: (date) => _date = date!,
+                  controller: dateController,
+                  onChanged: (value) {},
+                  style: GoogleFonts.poppins(fontSize: 16),
+                  decoration: InputDecoration(
+                    counterText: "",
+                    contentPadding: EdgeInsets.all(defaultPadding),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
 
