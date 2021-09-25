@@ -55,15 +55,6 @@ class _CustomerListState extends State<CustomerList> {
                   color: Color(0xFF2D9CDB),
                 ),
                 onChanged: widget.onChanged,
-                // onChanged: (value) => setState(() => _valLayanan = value!),
-                // validator: (value) =>
-                //     value == null ? 'This field is required' : null,
-                // items: _listlayanan.map<DropdownMenuItem<String>>((value) {
-                //   return DropdownMenuItem(
-                //     child: Text(value),
-                //     value: value,
-                //   );
-                // }).toList(),
                 items: widget.items,
                 validator: widget.validator,
                 decoration: InputDecoration(

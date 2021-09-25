@@ -1,8 +1,6 @@
 import 'package:bam_project/components/text_field_name.dart';
 import 'package:bam_project/constants.dart';
-import 'package:bam_project/screens/details/detail_screen.dart';
 import 'package:bam_project/screens/forms/components/date_picker.dart';
-import 'package:bam_project/screens/forms/components/list_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../form_ba_material_screen.dart';
 import 'components/customer_form.dart';
 import 'components/customer_list.dart';
-import 'components/dropdown_list.dart';
 
 class CustomerScreen extends StatefulWidget {
   const CustomerScreen({Key? key}) : super(key: key);
@@ -33,7 +30,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
     '1P',
     '2P',
     '3P',
-    'DATIN',
+    'VPNIP',
     'ASTINET',
     'METRO-E',
     'SIP-TRUNK',
@@ -103,19 +100,6 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     borderRadius: BorderRadius.circular(8),
                     child: ElevatedButton(
                       onPressed: () {
-                        // if (_listKeyP.currentState!.validate()) {
-                        //   _listKeyP.currentState!.save();
-                        //   if (_listKeyL.currentState!.validate()) {
-                        //     _listKeyL.currentState!.save();
-                        //   }
-                        //   if (_formKey.currentState!.validate()) {
-                        //     _formKey.currentState!.save();
-                        //   }  Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //           builder: (contest) => FormMaterial()));
-                        // }
-
                         if (_listKeyL.currentState!.validate() &&
                             _listKeyP.currentState!.validate() &&
                             _dateKey.currentState!.validate() &&
@@ -130,21 +114,6 @@ class _CustomerScreenState extends State<CustomerScreen> {
                                   builder: (context) => FormMaterial()));
                         }
                       },
-
-                      // if (_formKey.currentState!.validate() ||
-                      //     _valLayanan == "Gangguan") {
-                      //   _formKey.currentState!.save();
-                      //   Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //           builder: (context) => FormMaterial()));
-                      // } else {
-                      //   Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //           builder: (context) => DetailScreen()));
-                      // }
-
                       child: Text(
                         "Next",
                         style: poppinsStyle(
@@ -184,78 +153,3 @@ class _CustomerScreenState extends State<CustomerScreen> {
     );
   }
 }
-
-// class CustomerScreen extends StatelessWidget {
-//   const CustomerScreen({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(),
-//       body: Center(
-//         child: SafeArea(
-//           child: SingleChildScrollView(
-//             padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-//             child: Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 MyDatePicker(),
-//                 const SizedBox(height: defaultPadding),
-//                 Material(
-//                   elevation: 8,
-//                   borderRadius: BorderRadius.circular(8),
-//                   child: TextFormField(
-//                     decoration: InputDecoration(
-//                         hintText: "No Ticket / No SC / No AO",
-//                         labelText: "No Ticket / No SC / No AO"),
-//                   ),
-//                 ),
-//                 const SizedBox(height: defaultPadding),
-//                 Material(
-//                   elevation: 8,
-//                   borderRadius: BorderRadius.circular(8),
-//                   child: TextFormField(
-//                     decoration: InputDecoration(
-//                         hintText: "No Inet / Tlp / SID",
-//                         labelText: "No Inet / Tlp / SID"),
-//                   ),
-//                 ),
-//                 const SizedBox(height: defaultPadding),
-//                 Material(
-//                   elevation: 8,
-//                   borderRadius: BorderRadius.circular(8),
-//                   child: TextFormField(
-//                     decoration: InputDecoration(
-//                         hintText: "Nama Pelanggan",
-//                         labelText: "Nama Pelanggan"),
-//                   ),
-//                 ),
-//                 const SizedBox(height: defaultPadding),
-//                 Material(
-//                   elevation: 8,
-//                   borderRadius: BorderRadius.circular(8),
-//                   child: TextFormField(
-//                     decoration: InputDecoration(
-//                         hintText: "PIC / No HP Pelanggan",
-//                         labelText: "PIC / No HP Pelanggan"),
-//                   ),
-//                 ),
-//                 const SizedBox(height: defaultPadding),
-//                 Material(
-//                   elevation: 8,
-//                   borderRadius: BorderRadius.circular(8),
-//                   child: TextFormField(
-//                     maxLines: 4,
-//                     decoration: InputDecoration(
-//                         hintText: "Alamat", labelText: "Alamat"),
-//                   ),
-//                 ),
-//                 const SizedBox(height: defaultPadding),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

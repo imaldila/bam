@@ -90,36 +90,5 @@ class _MyDatePickerState extends State<MyDatePicker> {
         ),
       ),
     );
-
-    // return Container(
-    //   decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
-    //   width: double.infinity,
-    //   // height: size.height / 13.5,
-    //   // margin: const EdgeInsets.fromLTRB(
-    //   //   defaultPadding,
-    //   //   defaultPadding,
-    //   //   defaultPadding,
-    //   //   0,
-    //   // ),
-    //   child: Material(
-    //     elevation: 8,
-    //     borderRadius: BorderRadius.circular(8),
-    //     shadowColor: Colors.white,
-    //     child: ClipRRect(
-    //       borderRadius: BorderRadius.circular(8),
-    //       child: ElevatedButton(
-    //         style: ElevatedButton.styleFrom(
-    //             primary: Colors.white,
-    //             alignment: Alignment.centerLeft,
-    //             shadowColor: Colors.transparent),
-    //         onPressed: () {
-    //           _selectDate(context);
-    //         },
-    //         child: Text(getText(),
-    //             style: poppinsStyle(color: Colors.black, fontSize: 15)),
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }

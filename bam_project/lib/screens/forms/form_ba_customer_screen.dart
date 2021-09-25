@@ -21,20 +21,6 @@ class FormCustomer extends StatelessWidget {
   }
 }
 
-// class FormCustomer extends StatefulWidget {
-//   @override
-//   _FormCustomerState createState() => _FormCustomerState();
-// }
-
-// class _FormCustomerState extends State<FormCustomer> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: buildAppBar(context),
-//       body: BodyCustomer(),
-//     );
-//   }
-
 AppBar buildAppBar(BuildContext context) {
   return AppBar(
     leading: IconButton(
