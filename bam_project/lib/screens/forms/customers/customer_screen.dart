@@ -89,47 +89,11 @@ class _CustomerScreenState extends State<CustomerScreen> {
                   validator: (value) =>
                       value == null ? "This field is required" : null,
                 ),
-                // DropDownList(),
-                // ListButton(
-                //   formKey: _formKey,
-                //   hint: "Jenis Layanan",
-                //   value: _valLayanan,
-                //   items: _listLayanan.map((value) {
-                //     return DropdownMenuItem(
-                //       child: Text(value),
-                //       value: value,
-                //     );
-                //   }).toList(),
-                //   onChange: (value) {
-                //     setState(() {
-                //       _valLayanan = value;
-                //     });
-                //   },
-                //   validator: (value) =>
-                //       value == null ? 'This field is required' : null,
-                // ),
                 const SizedBox(height: defaultPadding),
-                // TextFieldName(text: "Jenis Paket"),
-                // ListButton(
-                //   hint: "Jenis Paket",
-                //   value: _valPaket,
-                //   items: _listPaket.map((value) {
-                //     return DropdownMenuItem(
-                //       child: Text(value),
-                //       value: value,
-                //     );
-                //   }).toList(),
-                //   onChange: (value) {
-                //     setState(() {
-                //       _valPaket = value;
-                //     });
-                //   },
-                // ),
-                // const SizedBox(height: defaultPadding),
                 TextFieldName(text: "Tanggal"),
-                // MyDatePicker(
-                //   formKey: _dateKey,
-                // ),
+                MyDatePicker(
+                  formKey: _dateKey,
+                ),
                 const SizedBox(height: defaultPadding),
                 CustomerForm(formKey: _formKey),
                 const SizedBox(height: defaultPadding),
@@ -139,43 +103,32 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     borderRadius: BorderRadius.circular(8),
                     child: ElevatedButton(
                       onPressed: () {
-                        if (_listKeyP.currentState!.validate()) {
-                          _listKeyP.currentState!.save();
-                        } else if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save(); 
-                        } else if (_listKeyL.currentState!.validate()) {
-                          _listKeyL.currentState!.save();
-                          if (_valLayanan == "Gangguan") {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FormMaterial()));
-                          } else {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => DetailScreen()));
-                          }
-                        }
-
-                        // if (_listKeyP.currentState!.validate() ||
-                        //     _listKeyL.currentState!.validate() ||
-                        //     _formKey.currentState!.validate()) {
+                        // if (_listKeyP.currentState!.validate()) {
                         //   _listKeyP.currentState!.save();
-                        //   _listKeyL.currentState!.save();
-                        //   _formKey.currentState!.save();
-                        //   if (_valLayanan == "Gangguan") {
-                        //     Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => FormMaterial()));
-                        //   } else {
-                        //     Navigator.push(
-                        //         context,
-                        //         MaterialPageRoute(
-                        //             builder: (context) => DetailScreen()));
+                        //   if (_listKeyL.currentState!.validate()) {
+                        //     _listKeyL.currentState!.save();
                         //   }
+                        //   if (_formKey.currentState!.validate()) {
+                        //     _formKey.currentState!.save();
+                        //   }  Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(
+                        //           builder: (contest) => FormMaterial()));
                         // }
+
+                        if (_listKeyL.currentState!.validate() &&
+                            _listKeyP.currentState!.validate() &&
+                            _dateKey.currentState!.validate() &&
+                            _formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          _listKeyL.currentState!.save();
+                          _listKeyL.currentState!.save();
+                          _dateKey.currentState!.save();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FormMaterial()));
+                        }
                       },
 
                       // if (_formKey.currentState!.validate() ||
@@ -231,10 +184,6 @@ class _CustomerScreenState extends State<CustomerScreen> {
     );
   }
 }
-
-
-
-
 
 // class CustomerScreen extends StatelessWidget {
 //   const CustomerScreen({Key? key}) : super(key: key);

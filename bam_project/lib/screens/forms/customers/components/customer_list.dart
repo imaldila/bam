@@ -39,7 +39,7 @@ class _CustomerListState extends State<CustomerList> {
                 color: Colors.white,
                 shadowColor: Colors.white,
                 child: Container(
-                  height: 63,
+                  height: 62,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),

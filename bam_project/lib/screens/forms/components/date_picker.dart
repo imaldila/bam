@@ -47,13 +47,15 @@ class _MyDatePickerState extends State<MyDatePicker> {
   @override
   Widget build(BuildContext context) {
     final requiredValidator =
-        RequiredValidator(errorText: 'this field is required !');
+        RequiredValidator(errorText: 'This field is required !');
     // ignore: unused_local_variable
     Size size = MediaQuery.of(context).size;
 
-    return SizedBox(
-      width: double.infinity,
-      child: Form(
+    return Form(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      key: widget.formKey,
+      child: SizedBox(
+        width: double.infinity,
         child: Stack(
           children: [
             Material(
