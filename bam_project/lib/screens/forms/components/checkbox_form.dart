@@ -22,12 +22,6 @@ class _CheckBoxFormState extends State<CheckBoxForm> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(
-        defaultPadding,
-        defaultPadding,
-        defaultPadding * 1.2,
-        0,
-      ),
       child: Row(
         children: [
           Checkbox(
@@ -42,8 +36,8 @@ class _CheckBoxFormState extends State<CheckBoxForm> {
             style: poppinsStyle(),
           ),
           Spacer(),
-          SizedBox(
-            width: 45,
+          Container(
+            width: 50,
             child: TextField(
               style: poppinsStyle(),
               controller: widget.controller,
@@ -52,6 +46,8 @@ class _CheckBoxFormState extends State<CheckBoxForm> {
               readOnly: (isChecked = isChecked) ? false : true,
               maxLength: 3,
               decoration: InputDecoration(
+                enabledBorder: UnderlineInputBorder(),
+                border: UnderlineInputBorder(borderSide: BorderSide()),
                 counterText: '',
               ),
             ),

@@ -47,6 +47,7 @@ class _CustomerFormState extends State<CustomerForm> {
   Widget build(BuildContext context) {
     final requiredValidator =
         RequiredValidator(errorText: 'This field is required !');
+    Size size = MediaQuery.of(context).size;
     return Form(
       autovalidateMode: _autovalidateMode,
       key: widget.formKey,
@@ -61,7 +62,7 @@ class _CustomerFormState extends State<CustomerForm> {
                 borderRadius: BorderRadius.circular(8),
                 shadowColor: Colors.white,
                 child: Container(
-                  height: 60,
+                  height: size.height / 14.5,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
@@ -93,7 +94,7 @@ class _CustomerFormState extends State<CustomerForm> {
                 borderRadius: BorderRadius.circular(8),
                 shadowColor: Colors.white,
                 child: Container(
-                  height: 60,
+                  height: size.height / 14.5,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
@@ -124,7 +125,7 @@ class _CustomerFormState extends State<CustomerForm> {
                 borderRadius: BorderRadius.circular(8),
                 shadowColor: Colors.white,
                 child: Container(
-                  height: 60,
+                  height: size.height / 14.5,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
@@ -154,7 +155,7 @@ class _CustomerFormState extends State<CustomerForm> {
                 borderRadius: BorderRadius.circular(8),
                 shadowColor: Colors.white,
                 child: Container(
-                  height: 60,
+                  height: size.height / 14.5,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
@@ -185,7 +186,7 @@ class _CustomerFormState extends State<CustomerForm> {
                 borderRadius: BorderRadius.circular(8),
                 shadowColor: Colors.white,
                 child: Container(
-                  height: 120,
+                  height: size.height / 7.3,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),

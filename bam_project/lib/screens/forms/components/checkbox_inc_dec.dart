@@ -37,21 +37,38 @@ class _CheckBoxIncDecState extends State<CheckBoxIncDec> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(
-        defaultPadding,
-        defaultPadding,
-        defaultPadding,
-        0,
-      ),
       child: Row(
         children: [
-          Checkbox(
-              value: isChecked,
-              onChanged: (value) {
-                setState(() {
-                  isChecked = value!;
-                });
-              }),
+          Stack(
+            children: [
+              Material(
+                elevation: 8,
+                shadowColor: Colors.white,
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+                child: Container(
+                  // height: size.height / 14.5,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8)),
+                ),
+              ),
+              Checkbox(
+                  value: isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      isChecked = value!;
+                    });
+                  }),
+            ],
+          ),
+          // Checkbox(
+          //     value: isChecked,
+          //     onChanged: (value) {
+          //       setState(() {
+          //         isChecked = value!;
+          //       });
+          //     }),
           Text(
             widget.text,
             style: poppinsStyle(),

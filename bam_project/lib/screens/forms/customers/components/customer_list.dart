@@ -25,6 +25,7 @@ class CustomerList extends StatefulWidget {
 class _CustomerListState extends State<CustomerList> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Form(
       key: widget.formKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -39,7 +40,7 @@ class _CustomerListState extends State<CustomerList> {
                 color: Colors.white,
                 shadowColor: Colors.white,
                 child: Container(
-                  height: 62,
+                  height: size.height / 14,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
@@ -48,7 +49,6 @@ class _CustomerListState extends State<CustomerList> {
               ),
               DropdownButtonFormField(
                 style: poppinsStyle(color: Colors.black),
-                // value: _valLayanan,
                 value: widget.value,
                 icon: SvgPicture.asset(
                   'assets/icons/ic_button.svg',
