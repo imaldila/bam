@@ -40,7 +40,7 @@ class _CustomerListState extends State<CustomerList> {
                 color: Colors.white,
                 shadowColor: Colors.white,
                 child: Container(
-                  height: size.height / 14,
+                  height: 62,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8),
@@ -48,7 +48,8 @@ class _CustomerListState extends State<CustomerList> {
                 ),
               ),
               DropdownButtonFormField(
-                style: poppinsStyle(color: Colors.black),
+                isDense: true,
+                style: poppinsStyle(color: Colors.black, height: 1.5),
                 value: widget.value,
                 icon: SvgPicture.asset(
                   'assets/icons/ic_button.svg',

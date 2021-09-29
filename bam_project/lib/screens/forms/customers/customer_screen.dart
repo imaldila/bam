@@ -1,6 +1,7 @@
 import 'package:bam_project/components/text_field_name.dart';
 import 'package:bam_project/constants.dart';
 import 'package:bam_project/screens/forms/components/date_picker.dart';
+import 'package:bam_project/screens/forms/materials/material_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -111,7 +112,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => FormMaterial()));
+                                  builder: (context) => MaterialScreen()));
                         }
                       },
                       child: Text(

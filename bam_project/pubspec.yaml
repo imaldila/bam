@@ -26,6 +26,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.0.1
   firebase_core: ^1.4.0
+  lottie: ^1.2.1
   flutter:
     sdk: flutter
   flutter_bloc: ^7.2.0
@@ -33,8 +34,10 @@ dependencies:
   form_field_validator: ^1.1.0
   google_fonts: ^2.1.0
   intl: ^0.17.0
+  
   number_inc_dec: ^0.8.0
   provider: ^6.0.0
+  signature: ^4.1.1
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +54,8 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/
+    - assets/lotties/
     - assets/images/
     - assets/images/logo_ccan.png
     - assets/icons/

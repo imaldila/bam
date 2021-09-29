@@ -78,7 +78,7 @@ class _MyDatePickerState extends State<MyDatePicker> {
                   onSaved: (date) => _date = date!,
                   controller: dateController,
                   onChanged: (value) {},
-                  style: GoogleFonts.poppins(fontSize: 16),
+                  style: GoogleFonts.poppins(fontSize: 16, height: 1.5),
                   decoration: InputDecoration(
                     counterText: "",
                     contentPadding: EdgeInsets.all(defaultPadding),

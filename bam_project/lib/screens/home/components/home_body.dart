@@ -1,5 +1,6 @@
 import 'package:bam_project/screens/details/detail_screen.dart';
 import 'package:bam_project/screens/forms/customers/customer_screen.dart';
+import 'package:bam_project/screens/forms/datek/components/signature_form.dart';
 import 'package:bam_project/screens/forms/materials/material_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,7 +41,7 @@ class HomeBody extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DetailScreen()));
+                              builder: (context) => SignatureForm()));
                     },
                     style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.only(bottom: 10),
