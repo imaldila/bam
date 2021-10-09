@@ -1,6 +1,8 @@
 import 'package:bam_project/components/text_field_name.dart';
 import 'package:bam_project/constants.dart';
 import 'package:bam_project/screens/forms/datek/components/signature_form.dart';
+import 'package:bam_project/screens/home/home_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +20,7 @@ class DatekScreen extends StatefulWidget {
 class _DatekScreenState extends State<DatekScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController controller;
+  final ticketController = TextEditingController();
 
   @override
   void initState() {
@@ -28,6 +31,9 @@ class _DatekScreenState extends State<DatekScreen>
 
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference baid = firestore.collection('baid');
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: buildAppBar(context),
@@ -56,12 +62,32 @@ class _DatekScreenState extends State<DatekScreen>
                       onPressed: () => showDialog(
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
+                                title: Text("Confirm"),
+                                content: const Text("Are You Sure ?"),
                                 elevation: 8,
                                 actions: [
-                                  Lottie.asset('assets/lotties/check.json'),
-                                  Text("Data has been Saved !!",
-                                      style: poppinsStyle(
-                                          fontWeight: FontWeight.bold))
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, 'Cancel'),
+                                    child: const Text('Cancel'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      // baid.add({
+                                      //   'ticket': ticketController.text
+                                      // });
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  HomeScreen()));
+                                    },
+                                    child: const Text('OK'),
+                                  ),
+                                  // Lottie.asset('assets/lotties/check.json'),
+                                  // Text("Data has been Saved !!",
+                                  //     style: poppinsStyle(
+                                  //         fontWeight: FontWeight.bold))
                                 ],
                               )),
                       child: Text(

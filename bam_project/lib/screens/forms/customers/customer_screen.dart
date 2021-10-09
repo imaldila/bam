@@ -2,11 +2,11 @@ import 'package:bam_project/components/text_field_name.dart';
 import 'package:bam_project/constants.dart';
 import 'package:bam_project/screens/forms/components/date_picker.dart';
 import 'package:bam_project/screens/forms/materials/material_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../form_ba_material_screen.dart';
 import 'components/customer_form.dart';
 import 'components/customer_list.dart';
 
@@ -22,6 +22,8 @@ class _CustomerScreenState extends State<CustomerScreen> {
   final _listKeyL = GlobalKey<FormState>();
   final _listKeyP = GlobalKey<FormState>();
   final _dateKey = GlobalKey<FormState>();
+
+  
 
   String? _valLayanan;
   List _listLayanan = ['Pasang Baru', 'Gangguan'];
@@ -40,6 +42,9 @@ class _CustomerScreenState extends State<CustomerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference baid = firestore.collection('baid');
+
     return Scaffold(
       appBar: buildAppBar(context),
       body: Center(

@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../../constants.dart';
 
 class DatekForm extends StatelessWidget {
-  const DatekForm({
-    Key? key,
-  }) : super(key: key);
+ 
+  final TextEditingController stoController = TextEditingController();
+  final TextEditingController odcController = TextEditingController();
+  final TextEditingController odpController = TextEditingController();
+  final TextEditingController portController = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +24,7 @@ class DatekForm extends StatelessWidget {
           SizedBox(
             width: 50,
             child: TextField(
+              controller: stoController,
               textInputAction: TextInputAction.next,
               style: poppinsStyle(),
               textAlign: TextAlign.center,
@@ -40,6 +44,7 @@ class DatekForm extends StatelessWidget {
           SizedBox(
             width: 50,
             child: TextField(
+              controller: odcController,
               textInputAction: TextInputAction.next,
               style: poppinsStyle(),
               textAlign: TextAlign.center,
@@ -59,6 +64,7 @@ class DatekForm extends StatelessWidget {
           SizedBox(
             width: 50,
             child: TextField(
+              controller: odpController,
               textInputAction: TextInputAction.next,
               style: poppinsStyle(),
               textAlign: TextAlign.center,
@@ -79,6 +85,7 @@ class DatekForm extends StatelessWidget {
           SizedBox(
             width: 50,
             child: TextField(
+              controller: portController,
               textInputAction: TextInputAction.done,
               style: poppinsStyle(),
               textAlign: TextAlign.center,

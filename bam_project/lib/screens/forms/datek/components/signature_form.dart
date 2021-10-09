@@ -28,6 +28,9 @@ class _SignatureFormState extends State<SignatureForm> {
     });
   }
 
+  bool isClicked = false;
+  final editKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -49,11 +52,22 @@ class _SignatureFormState extends State<SignatureForm> {
                         topRight: Radius.circular(8))),
               ),
             ),
-            Signature(
-              width: size.width,
-              controller: signatureController,
-              height: size.height / 2,
-              backgroundColor: Colors.white24,
+            AbsorbPointer(
+              absorbing: (isClicked = !isClicked) ? true : false,
+              child: Signature(
+                width: size.width / 1.2,
+                controller: signatureController,
+                height: size.height / 2,
+                backgroundColor: Colors.white24,
+              ),
+            ),
+            IconButton(
+              key: editKey,
+              onPressed: () {
+                setState(() {});
+              },
+              icon: Icon(Icons.edit),
+              color: primaryColor,
             ),
           ],
         ),
@@ -81,15 +95,16 @@ class _SignatureFormState extends State<SignatureForm> {
                         await Image.memory(data);
                       }
                     }
+                    setState(() {});
                   },
-                  icon: const Icon(Icons.edit),
+                  icon: const Icon(Icons.check),
                   color: primaryColor,
                 ),
                 IconButton(
                   icon: const Icon(Icons.clear),
                   color: primaryColor,
                   onPressed: () {
-                    setState(() => signatureController.clear());
+                    signatureController.clear();
                   },
                 ),
               ],
@@ -99,80 +114,4 @@ class _SignatureFormState extends State<SignatureForm> {
       ],
     );
   }
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //       home: Builder(
-  //     builder: (BuildContext context) => Scaffold(
-  //       body: ListView(
-  //         children: <Widget>[
-  //           Container(
-  //             height: 300,
-  //             child: const Center(
-  //               child: Text('Big container to test scrolling issues'),
-  //             ),
-  //           ),
-  //           //SIGNATURE CANVAS
-  //           Signature(
-  //             controller: signatureController,
-  //             height: 300,
-  //             backgroundColor: Colors.lightBlueAccent,
-  //           ),
-  //           //OK AND CLEAR BUTTONS
-  //           Container(
-  //             decoration: const BoxDecoration(color: Colors.black),
-  //             child: Row(
-  //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //               mainAxisSize: MainAxisSize.max,
-  //               children: <Widget>[
-  //                 //SHOW EXPORTED IMAGE IN NEW ROUTE
-  //                 IconButton(
-  //                   icon: const Icon(Icons.check),
-  //                   color: Colors.blue,
-  //                   onPressed: () async {
-  //                     if (signatureController.isNotEmpty) {
-  //                       final Uint8List? data =
-  //                           await signatureController.toPngBytes();
-  //                       if (data != null) {
-  //                         await Navigator.of(context).push(
-  //                           MaterialPageRoute<void>(
-  //                             builder: (BuildContext context) {
-  //                               return Scaffold(
-  //                                 appBar: AppBar(),
-  //                                 body: Center(
-  //                                   child: Container(
-  //                                     color: Colors.grey[300],
-  //                                     child: Image.memory(data),
-  //                                   ),
-  //                                 ),
-  //                               );
-  //                             },
-  //                           ),
-  //                         );
-  //                       }
-  //                     }
-  //                   },
-  //                 ),
-  //                 //CLEAR CANVAS
-  //                 IconButton(
-  //                   icon: const Icon(Icons.clear),
-  //                   color: Colors.blue,
-  //                   onPressed: () {
-  //                     setState(() => signatureController.clear());
-  //                   },
-  //                 ),
-  //               ],
-  //             ),
-  //           ),
-  //           Container(
-  //             height: 300,
-  //             child: const Center(
-  //               child: Text('Big container to test scrolling issues'),
-  //             ),
-  //           )
-  //         ],
-  //       ),
-  //     ),
-  //   ));
-  // }
 }
