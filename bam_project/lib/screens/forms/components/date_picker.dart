@@ -1,3 +1,4 @@
+import 'package:bam_project/models/customer.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +18,7 @@ class MyDatePicker extends StatefulWidget {
 class _MyDatePickerState extends State<MyDatePicker> {
   final TextEditingController dateController = TextEditingController();
   DateTime? _dateTime;
+  Customer? customer;
 
   Future<void> _selectDate(BuildContext context) async {
     // ignore: unused_local_variable
@@ -75,7 +77,9 @@ class _MyDatePickerState extends State<MyDatePicker> {
               child: AbsorbPointer(
                 child: TextFormField(
                   validator: requiredValidator,
-                  onSaved: (date) => _date = date!,
+                  onSaved: (_date) {
+                    customer?.date = _date;
+                  },
                   controller: dateController,
                   onChanged: (value) {},
                   style: GoogleFonts.poppins(fontSize: 16, height: 1.5),

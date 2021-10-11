@@ -1,5 +1,6 @@
 import 'package:bam_project/components/text_field_name.dart';
 import 'package:bam_project/constants.dart';
+import 'package:bam_project/models/Customer.dart';
 import 'package:bam_project/screens/forms/components/checkbox_form.dart';
 import 'package:bam_project/screens/forms/components/checkbox_inc_dec.dart';
 import 'package:bam_project/screens/forms/datek/datek_screen.dart';
@@ -12,7 +13,8 @@ import 'components/sdwan_form.dart';
 import 'components/stb_form.dart';
 
 class MaterialScreen extends StatefulWidget {
-  const MaterialScreen({Key? key}) : super(key: key);
+  final Customer? customer;
+  const MaterialScreen({Key? key, this.customer}) : super(key: key);
 
   @override
   _MaterialScreenState createState() => _MaterialScreenState();

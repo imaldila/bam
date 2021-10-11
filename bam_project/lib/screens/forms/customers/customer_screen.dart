@@ -1,5 +1,6 @@
 import 'package:bam_project/components/text_field_name.dart';
 import 'package:bam_project/constants.dart';
+import 'package:bam_project/models/customer.dart';
 import 'package:bam_project/screens/forms/components/date_picker.dart';
 import 'package:bam_project/screens/forms/materials/material_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -23,7 +24,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
   final _listKeyP = GlobalKey<FormState>();
   final _dateKey = GlobalKey<FormState>();
 
-  
+  Customer? customer;
 
   String? _valLayanan;
   List _listLayanan = ['Pasang Baru', 'Gangguan'];
@@ -43,7 +44,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
-    CollectionReference baid = firestore.collection('baid');
+    // CollectionReference baid = firestore.collection('baid');
 
     return Scaffold(
       appBar: buildAppBar(context),
@@ -57,6 +58,9 @@ class _CustomerScreenState extends State<CustomerScreen> {
                 const SizedBox(height: defaultPadding),
                 TextFieldName(text: "Jenis Layanan"),
                 CustomerList(
+                  onSaved: (_valLayanan) {
+                    customer?.valLayanan = _valLayanan;
+                  },
                   formKey: _listKeyL,
                   value: _valLayanan,
                   items: _listLayanan.map((value) {
@@ -76,6 +80,9 @@ class _CustomerScreenState extends State<CustomerScreen> {
                 const SizedBox(height: defaultPadding),
                 TextFieldName(text: "Jenis Paket"),
                 CustomerList(
+                  onSaved: (_valPaket) {
+                    customer?.valPaket = _valPaket;
+                  },
                   formKey: _listKeyP,
                   value: _valPaket,
                   items: _listPaket.map((value) {

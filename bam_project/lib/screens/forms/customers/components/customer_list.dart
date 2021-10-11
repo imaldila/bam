@@ -10,6 +10,7 @@ class CustomerList extends StatefulWidget {
     this.items,
     this.onChanged,
     this.validator,
+    required this.onSaved,
   }) : super(key: key);
 
   final value;
@@ -17,6 +18,7 @@ class CustomerList extends StatefulWidget {
   final ValueChanged? onChanged;
   final validator;
   final GlobalKey formKey;
+  final Function onSaved;
 
   @override
   _CustomerListState createState() => _CustomerListState();
@@ -48,6 +50,9 @@ class _CustomerListState extends State<CustomerList> {
                 ),
               ),
               DropdownButtonFormField(
+                onSaved: (_) {
+                  widget.onSaved;
+                },
                 isDense: true,
                 style: poppinsStyle(color: Colors.black, height: 1.5),
                 value: widget.value,

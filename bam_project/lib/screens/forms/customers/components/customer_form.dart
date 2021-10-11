@@ -1,4 +1,5 @@
 import 'package:bam_project/components/text_field_name.dart';
+import 'package:bam_project/models/Customer.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,8 +39,9 @@ class _CustomerFormState extends State<CustomerForm> {
     super.dispose();
   }
 
+  Customer? customer;
   // ignore: unused_field
-  late String _ticket, _nd, _name, _address, _pic, _username;
+  // late String _ticket, _nd, _name, _address, _pic, _username;
 
   AutovalidateMode _autovalidateMode = AutovalidateMode.onUserInteraction;
 
@@ -70,7 +72,9 @@ class _CustomerFormState extends State<CustomerForm> {
                 ),
               ),
               TextFormField(
-                onSaved: (ticket) => _ticket = ticket!,
+                onSaved: (_ticket) {
+                  customer?.ticket = _ticket;
+                },
                 validator: requiredValidator,
                 textCapitalization: TextCapitalization.characters,
                 textInputAction: TextInputAction.next,
@@ -103,7 +107,9 @@ class _CustomerFormState extends State<CustomerForm> {
                 ),
               ),
               TextFormField(
-                onSaved: (nd) => _nd = nd!,
+                onSaved: (_nd) {
+                  customer?.nd = _nd;
+                },
                 validator: requiredValidator,
                 keyboardType: TextInputType.number,
                 textInputAction: TextInputAction.next,
@@ -135,7 +141,9 @@ class _CustomerFormState extends State<CustomerForm> {
                 ),
               ),
               TextFormField(
-                onSaved: (name) => _name = name!,
+                onSaved: (_name) {
+                  customer?.name = _name;
+                },
                 validator: requiredValidator,
                 textCapitalization: TextCapitalization.words,
                 textInputAction: TextInputAction.next,
@@ -166,7 +174,9 @@ class _CustomerFormState extends State<CustomerForm> {
                 ),
               ),
               TextFormField(
-                onSaved: (pic) => _pic = pic!,
+                onSaved: (_pic) {
+                  customer?.pic = int.parse(_pic.toString());
+                },
                 validator: requiredValidator,
                 keyboardType: TextInputType.number,
                 textInputAction: TextInputAction.next,
@@ -198,7 +208,9 @@ class _CustomerFormState extends State<CustomerForm> {
                 ),
               ),
               TextFormField(
-                onSaved: (address) => _address = address!,
+                onSaved: (_address) {
+                  customer?.address = _address;
+                },
                 validator: requiredValidator,
                 textCapitalization: TextCapitalization.words,
                 keyboardType: TextInputType.streetAddress,
